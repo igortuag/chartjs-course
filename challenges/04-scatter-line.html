@@ -77,9 +77,12 @@
         type: "scatter",
         data,
         options: {
-          layout: {
-            padding: {
-              bottom: 10
+          scales: {
+            x: {
+              beginAtZero: true
+            },
+            y: {
+              beginAtZero: true
             }
           }
         }
