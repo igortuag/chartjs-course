@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>03 - Arrow rounded border doughnut</title>
+    <title>03 - Narrow rounded border doughnut</title>
   </head>
   <style>
     * {
@@ -31,7 +31,7 @@
       justify-content: center;
     }
     .chartBox {
-      width: 700px;
+      width: 500px;
       padding: 20px;
       border-radius: 20px;
       border: solid 3px rgba(75, 192, 192, 1);
@@ -74,6 +74,7 @@
               "rgba(153, 102, 255, 1)",
               "rgba(255, 159, 64, 1)"
             ],
+            cutout: "90%",
             borderWidth: 1
           }
         ]
@@ -84,9 +85,18 @@
         type: "doughnut",
         data,
         options: {
-          scales: {
-            y: {
-              beginAtZero: true
+          plugins: {
+            legend: {
+              position: "bottom"
+            },
+            title: {
+              display: true,
+              text: "Chart.js Doughnut Chart"
+            }
+          },
+          elements: {
+            arc: {
+              borderWidth: 0
             }
           }
         }
