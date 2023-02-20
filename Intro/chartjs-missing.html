@@ -80,12 +80,7 @@
       };
 
       // config block
-
-      // init render block
-
-      const ctx = document.getElementById("myChart");
-
-      new Chart(ctx, {
+      const config = {
         type: "bar",
         data,
         options: {
@@ -95,7 +90,13 @@
             }
           }
         }
-      });
+      };
+
+      // init render block
+
+      const ctx = document.getElementById("myChart");
+
+      new Chart(ctx, config);
     </script>
   </body>
 </html>
