@@ -75,7 +75,10 @@
               "rgba(255, 159, 64, 1)"
             ],
             cutout: "90%",
-            borderWidth: 1
+            borderWidth: 1,
+            borderRadius: 5,
+            offset: 10,
+            hoverOffset: 10
           }
         ]
       };
@@ -83,23 +86,7 @@
       // config block
       const config = {
         type: "doughnut",
-        data,
-        options: {
-          plugins: {
-            legend: {
-              position: "bottom"
-            },
-            title: {
-              display: true,
-              text: "Chart.js Doughnut Chart"
-            }
-          },
-          elements: {
-            arc: {
-              borderWidth: 0
-            }
-          }
-        }
+        data
       };
 
       // init render block
