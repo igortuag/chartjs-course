@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubble chart</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+    .chartMenu {
+      width: 100vw;
+      height: 40px;
+      background: #1a1a1a;
+      color: rgba(75, 192, 192, 1);
+    }
+    .chartMenu p {
+      padding: 10px;
+      font-size: 20px;
+    }
+    .chartCard {
+      width: 100vw;
+      height: calc(100vh - 40px);
+      background: rgba(75, 192, 192, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .chartBox {
+      width: 700px;
+      padding: 20px;
+      border-radius: 20px;
+      border: solid 3px rgba(75, 192, 192, 1);
+      background: white;
+    }
+  </style>
+  <body>
+    <div class="chartMenu">
+      <p>Chart JS 4.2.1</p>
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      // data block
+      const data = {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [
+          {
+            label: "Blue Votes",
+            data: [
+              { x: 10, y: 6, r: 5 },
+              { x: 5, y: 7, r: 3 },
+              { x: 1, y: 3, r: 5 },
+              { x: 6, y: 5, r: 7 },
+              { x: 12, y: 1, r: 10 },
+              { x: 8, y: 3, r: 7 }
+            ],
+            backgroundColor: "rgba(54, 162, 235, 0.2)",
+            borderColors: "rgba(54, 162, 235, 1)",
+            borderWidth: 1
+          },
+          {
+            label: "Red Votes",
+            data: [
+              { x: 3, y: 5, r: 6 },
+              { x: 7, y: 2, r: 8 },
+              { x: 2, y: 1, r: 9 },
+              { x: 8, y: 8, r: 12 },
+              { x: 9, y: 6, r: 6 },
+              { x: 2, y: 5, r: 9 }	
+            ],
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            borderColors: "rgba(255, 99, 132, 1)",
+            borderWidth: 1
+          }
+        ]
+      };
+
+      // config block
+      const config = {
+        type: "bubble",
+        data,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      };
+
+      // init render block
+      const myChart = new Chart(document.getElementById("myChart"), config);
+    </script>
+  </body>
+</html>
