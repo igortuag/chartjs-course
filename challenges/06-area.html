@@ -31,7 +31,7 @@
       justify-content: center;
     }
     .chartBox {
-      width: 700px;
+      width: 500px;
       padding: 20px;
       border-radius: 20px;
       border: solid 3px rgba(75, 192, 192, 1);
@@ -85,8 +85,9 @@
         data,
         options: {
           scales: {
-            y: {
-              beginAtZero: true
+            r: {
+              suggestedMin: 0,
+              suggestedMax: 20
             }
           }
         }
