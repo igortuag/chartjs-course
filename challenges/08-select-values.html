@@ -95,10 +95,14 @@
       // init render block
       const myChart = new Chart(document.getElementById("myChart"), config);
 
-      console.log('type ::>>', myChart.config.type)
-      console.log('labels ::>>', myChart.config.data.labels)
-      console.log('third label ::>>', myChart.config.data.labels[3])
-      console.log('datasets ::>>', myChart.config.data.datasets)
+      console.log("type ::>>", myChart.config.type);
+      console.log("labels ::>>", myChart.config.data.labels);
+      console.log("third label ::>>", myChart.config.data.labels[3]);
+      console.log("datasets ::>>", myChart.config.data.datasets);
+      console.log(
+        "first dataset label ::>>",
+        myChart.config.data.datasets[0].label
+      );
     </script>
   </body>
 </html>
