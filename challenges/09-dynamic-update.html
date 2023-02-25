@@ -45,7 +45,7 @@
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
-        <input type="number" name="" id="">
+        <input type="number" id="valueid">
         <button onclick="addValue()">Add Value</button>
       </div>
     </div>
@@ -95,7 +95,12 @@
       };
 
       // init render block
-      const myChart = new Chart(document.getElementById("myChart"), config);
+      const myChart = new Chart(document.getElementById("myChart"), config)
+      
+      function addValue() {
+        const valueid = document.getElementById('valueid')
+        const value = valueid.value
+      }
     </script>
   </body>
 </html>
