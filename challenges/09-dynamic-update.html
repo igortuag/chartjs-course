@@ -102,8 +102,13 @@
       
       function addValue() {
         const valueid = document.getElementById('valueid')
-        const value = valueid.value
+        const value = +valueid.value
         dataPoints.push(value)
+        labels.push('New Value')
+        myChart.config.data.datasets[0].data = dataPoints
+        myChart.config.data.labels = labels
+
+        myChart.update()
       }
     </script>
   </body>
