@@ -45,7 +45,7 @@
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
-        <input type="number" id="valueid">
+        <input type="number" id="valueid" value="0">
         <button onclick="addValue()">Add Value</button>
       </div>
     </div>
@@ -53,13 +53,16 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+      const labels = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"];
+      const dataPoints = [12, 19, 3, 5, 2, 3];
+
       // data block
       const data = {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels,
         datasets: [
           {
             label: "# of Votes",
-            data: [12, 19, 3, 5, 2, 3],
+            data: dataPoints,
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
@@ -100,6 +103,7 @@
       function addValue() {
         const valueid = document.getElementById('valueid')
         const value = valueid.value
+        dataPoints.push(value)
       }
     </script>
   </body>
