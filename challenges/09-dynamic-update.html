@@ -105,7 +105,8 @@
         const valueid = document.getElementById('valueid')
         const value = +valueid.value
         dataPoints.push(value)
-        labels.push('New Value')
+        const label = document.getElementById('labelid').value
+        labels.push(label)
         myChart.config.data.datasets[0].data = dataPoints
         myChart.config.data.labels = labels
 
