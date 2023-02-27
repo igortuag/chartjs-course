@@ -47,7 +47,7 @@
         <canvas id="myChart"></canvas>
         <button onclick="changeColor(this)" value="rgba(255, 99, 132, 1)">Red</button>
         <button onclick="changeColor(this)" value="blue">Blue</button>
-        <button onclick="changeColor(this)" value="green">Green</button>
+        <button onclick="changeColor(this)" value="teal">Teal</button>
       </div>
     </div>
 
@@ -84,6 +84,13 @@
 
       // init render block
       const myChart = new Chart(document.getElementById("myChart"), config);
+
+      // change color block
+      function changeColor(e) {
+        myChart.data.datasets[0].backgroundColor = e.value;
+        myChart.data.datasets[0].borderColor = e.value;
+        myChart.update();
+      }
     </script>
   </body>
 </html>
