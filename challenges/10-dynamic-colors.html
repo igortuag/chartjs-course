@@ -45,6 +45,9 @@
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
+        <button onclick="changeColor(this)" value="rgba(255, 99, 132, 1)">Red</button>
+        <button onclick="changeColor(this)" value="blue">Blue</button>
+        <button onclick="changeColor(this)" value="green">Green</button>
       </div>
     </div>
 
@@ -60,6 +63,7 @@
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: "rgba(255, 99, 132, 1)",
             borderColors: "rgba(255, 99, 132, 1)",
+            tension: 0.4,
             borderWidth: 1
           }
         ]
