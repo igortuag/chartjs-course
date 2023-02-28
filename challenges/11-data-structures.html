@@ -112,15 +112,12 @@
         type: "bar",
         data,
         options: {
+          indexAxis: "y",
           parsing: {
-            xAxisKey: "department",
-            yAxisKey: "financials.cost"
+            yAxisKey: "department",
+            xAxisKey: "financials.cost"
           },
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
+          scales: {}
         }
       };
 
