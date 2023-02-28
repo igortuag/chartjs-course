@@ -53,7 +53,6 @@
     <script>
       // data block
       const data = {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [
           {
             label: "# of Votes",
@@ -113,6 +112,10 @@
         type: "bar",
         data,
         options: {
+          parsing: {
+            xAxisKey: "department",
+            yAxisKey: "financials.cost"
+          },
           scales: {
             y: {
               beginAtZero: true
