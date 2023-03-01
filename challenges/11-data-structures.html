@@ -51,7 +51,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-      const departments = [
+      const departmentsDatasets = [
         "Sales Department",
         "Marketing Department",
         "IT Department",
@@ -59,6 +59,16 @@
       ];
       const costs = [2000, 1000, 500, 1000];
       const budgets = [2500, 1500, 1000, 1500];
+
+      const departmentsInfo = departmentsDatasets.map((department, index) => {
+        return {
+          department,
+          financials: {
+            cost: costs[index],
+            budget: budgets[index]
+          }
+        };
+      });
 
       // data block
       const data = {
