@@ -51,41 +51,31 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+      const departmentsDatasets = [
+        "Sales Department",
+        "Marketing Department",
+        "IT Department",
+        "HR Department"
+      ];
+      const costs = [2000, 1000, 500, 1000];
+      const budgets = [2500, 1500, 1000, 1500];
+
+      const departmentsInfo = departmentsDatasets.map((department, index) => {
+        return {
+          department,
+          financials: {
+            cost: costs[index],
+            budget: budgets[index]
+          }
+        };
+      });
+
       // data block
       const data = {
         datasets: [
           {
             label: "# of Votes",
-            data: [
-              {
-                department: "Sales Department",
-                financials: {
-                  cost: 2000,
-                  budget: 2500
-                }
-              },
-              {
-                department: "Marketing Department",
-                financials: {
-                  cost: 1000,
-                  budget: 1500
-                }
-              },
-              {
-                department: "IT Department",
-                financials: {
-                  cost: 500,
-                  budget: 1000
-                }
-              },
-              {
-                department: "HR Department",
-                financials: {
-                  cost: 1000,
-                  budget: 1500
-                }
-              }
-            ],
+            data: departmentsInfo,
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
