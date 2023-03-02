@@ -58,6 +58,7 @@
         "HR Department"
       ];
       const costs = [2000, 1000, 500, 1000];
+      const taxes = [500, 200, 100, 200];
       const budgets = [2500, 1500, 1000, 1500];
 
       const departmentsInfo = departmentsDatasets.map((department, index) => {
@@ -65,7 +66,8 @@
           department,
           financials: {
             cost: costs[index],
-            budget: budgets[index]
+            budget: budgets[index],
+            tax: taxes[index]
           }
         };
       });
@@ -74,25 +76,34 @@
       const data = {
         datasets: [
           {
-            label: "# of Votes",
+            label: "Tax",
             data: departmentsInfo,
-            backgroundColor: [
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-              "rgba(75, 192, 192, 0.2)",
-              "rgba(153, 102, 255, 0.2)",
-              "rgba(255, 159, 64, 0.2)"
-            ],
-            borderColors: [
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-              "rgba(255, 159, 64, 1)"
-            ],
-            borderWidth: 1
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            borderColors: "rgba(255, 99, 132, 1)",
+            parsing: {
+              yAxisKey: "department",
+              xAxisKey: "financials.tax"
+            }
+          },
+          {
+            label: "Cost",
+            data: departmentsInfo,
+            backgroundColor: "rgba(54, 162, 235, 0.2)",
+            borderColors: "rgba(54, 162, 235, 1)",
+            parsing: {
+              yAxisKey: "department",
+              xAxisKey: "financials.cost"
+            }
+          },
+          {
+            label: "Budget",
+            data: departmentsInfo,
+            backgroundColor: "rgba(255, 206, 86, 0.2)",
+            borderColors: "rgba(255, 206, 86, 1)",
+            parsing: {
+              yAxisKey: "department",
+              xAxisKey: "financials.budget"
+            }
           }
         ]
       };
@@ -103,10 +114,7 @@
         data,
         options: {
           indexAxis: "y",
-          parsing: {
-            yAxisKey: "department",
-            xAxisKey: "financials.cost"
-          },
+          borderWidth: 1,
           scales: {}
         }
       };
