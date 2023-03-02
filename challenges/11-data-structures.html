@@ -80,7 +80,6 @@
             data: departmentsInfo,
             backgroundColor: "rgba(255, 99, 132, 0.2)",
             borderColors: "rgba(255, 99, 132, 1)",
-            borderWidth: 1,
             parsing: {
               yAxisKey: "department",
               xAxisKey: "financials.tax"
@@ -91,23 +90,21 @@
             data: departmentsInfo,
             backgroundColor: "rgba(54, 162, 235, 0.2)",
             borderColors: "rgba(54, 162, 235, 1)",
-            borderWidth: 1,
             parsing: {
               yAxisKey: "department",
               xAxisKey: "financials.cost"
             }
           },
-           {
+          {
             label: "Budget",
             data: departmentsInfo,
             backgroundColor: "rgba(255, 206, 86, 0.2)",
             borderColors: "rgba(255, 206, 86, 1)",
-            borderWidth: 1,
             parsing: {
               yAxisKey: "department",
               xAxisKey: "financials.budget"
             }
-          },
+          }
         ]
       };
 
@@ -117,7 +114,7 @@
         data,
         options: {
           indexAxis: "y",
-
+          borderWidth: 1,
           scales: {}
         }
       };
