@@ -104,6 +104,14 @@
 
       // init render block
       const myChart = new Chart(document.getElementById("myChart"), config);
+
+      // change financials block
+      const changeFinancials = (financial) => {
+        myChart.data.datasets[0].parsing.xAxisKey = `financials.${financial}`;
+        myChart.data.datasets[0].label = financial;
+        
+        myChart.update();
+      };
     </script>
   </body>
 </html>
