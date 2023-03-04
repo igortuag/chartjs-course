@@ -57,7 +57,7 @@
         [12, 19, 3, 5, 2, 3],
         [2, 29, 13, 15, 22, 13],
         [22, 9, 23, 25, 12, 23]
-      ]
+      ];
       const bgc = [
         "rgba(255, 99, 132, 0.2)",
         "rgba(54, 162, 235, 0.2)",
@@ -68,6 +68,17 @@
         "rgba(54, 162, 235, 1)",
         "rgba(255, 206, 86, 1)"
       ];
+
+      const colorDatasets = label.map((color, index) => {
+        let dataset = {
+          label: color,
+          data: datapoints[index],
+          backgroundColor: bgc[index],
+          borderColor: bdc[index]
+        };
+
+        return dataset;
+      });
 
       // data block
       const data = {
