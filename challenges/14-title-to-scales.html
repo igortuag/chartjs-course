@@ -51,6 +51,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+      const color = "rgba(255, 99, 132, 1)";
+
       // data block
       const data = {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -67,7 +69,7 @@
               { x: 6, y: 3 }
             ],
             backgroundColor: "rgba(255, 99, 132, 0.2)",
-            borderColors: "rgba(255, 99, 132, 1)",
+            borderColors: color,
             borderWidth: 1
           }
         ]
@@ -83,7 +85,7 @@
               title: {
                 display: true,
                 text: "Total Sales",
-                color: "red"
+                color
               }
             },
             y: {
