@@ -88,7 +88,7 @@
             x: {
               grid: {
                 color: (context) => {
-                  return context.tick.value === 10 ? "red" : "rgba(75, 192, 192, 1)";
+                  return context.index === 5 ? "red" : "rgba(75, 192, 192, 1)";
                 }
               }
             },
@@ -96,7 +96,7 @@
               beginAtZero: true,
               grid: {
                 color: (context) => {
-                  return context.tick.value === 10 ? "red" : "rgba(75, 192, 192, 1)";
+                  return context.index === 5 ? "red" : "rgba(75, 192, 192, 1)";
                 }
               }
             }
