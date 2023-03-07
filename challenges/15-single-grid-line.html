@@ -85,6 +85,13 @@
         data,
         options: {
           scales: {
+            x: {
+              grid: {
+                color: (context) => {
+                  return context.tick.value === 10 ? "red" : "rgba(75, 192, 192, 1)";
+                }
+              }
+            },
             y: {
               beginAtZero: true,
               grid: {
