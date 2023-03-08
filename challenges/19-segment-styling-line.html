@@ -53,8 +53,8 @@
     <script>
       // data block
 
-      const down = (ctx, color) => {
-        return ctx.p0.parsed.y > ctx.p1.parsed.y ? color : false;
+      const down = (ctx, value) => {
+        return ctx.p0.parsed.y > ctx.p1.parsed.y ? value : false;
       };
 
       const data = {
@@ -74,7 +74,8 @@
             tension: 0.4,
             segment: {
               borderColor: (ctx) =>
-                down(ctx, "rgba(255, 99, 132, 1)") || "rgba(54, 162, 235, 1)"
+                down(ctx, "rgba(255, 99, 132, 1)") || "rgba(54, 162, 235, 1)",
+              borderDash: (ctx) => down(ctx, [5, 5]) || [0, 0]
             }
           }
         ]
