@@ -52,6 +52,12 @@
 
     <script>
       // data block
+      const dash = (ctx, pattern) => {
+        const { p0DataIndex, p1DataIndex } = ctx;
+        
+        return p0DataIndex < p1DataIndex ? pattern : null;
+      };
+
       const data = {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [
@@ -63,7 +69,7 @@
             tension: 0.4,
             segment: {
               borderDash: (ctx) => {
-                dash(ctx, [6, 6]);
+                dash(ctx, [6, 6]) || [6, 0]
               }
             }
           }
