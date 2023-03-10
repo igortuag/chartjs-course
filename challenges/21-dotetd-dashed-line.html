@@ -52,14 +52,15 @@
 
     <script>
       // data block
+      const labels = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"];
       const dash = (ctx, pattern) => {
-        const { p0DataIndex, p1DataIndex } = ctx;
+        const { p0DataIndex } = ctx;
         
-        return p0DataIndex < p1DataIndex ? pattern : null;
+        return p0DataIndex < labels.indexOf('Green') ? pattern : null;
       };
 
       const data = {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels,
         datasets: [
           {
             label: "# of Votes",
