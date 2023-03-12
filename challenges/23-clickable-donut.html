@@ -110,7 +110,7 @@
         data,
         options: {
           parsing: {
-            key: "amount.usd",
+            key: "amount.usd"
           }
         }
       };
@@ -118,6 +118,19 @@
       // init render block
       const ctx = document.getElementById("myChart");
       const myChart = new Chart(ctx, config);
+
+      function pieChartCanvas(click) {
+        const points = myChart.getElementsAtEvent(
+          click,
+          "nearest",
+          {
+            intersect: true
+          },
+          true
+        );
+      }
+
+      ctx.onclick = pieChartCanvas;
     </script>
   </body>
 </html>
