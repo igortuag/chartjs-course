@@ -53,11 +53,36 @@
     <script>
       // data block
       const data = {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Sales", "Cost", "Profit"],
         datasets: [
           {
             label: "# of Votes",
-            data: [12, 19, 3, 5, 2, 3],
+            data: [
+              {
+                financial: "Sales",
+                url: "https://www.google.com",
+                amount: {
+                  usd: 900,
+                  eur: 600
+                }
+              },
+              {
+                financial: "Cost",
+                url: "https://www.chartks.org",
+                amount: {
+                  usd: 600,
+                  eur: 450
+                }
+              },
+              {
+                financial: "Profit",
+                url: "https://www.amazon.com",
+                amount: {
+                  usd: 450,
+                  eur: 300
+                }
+              }
+            ],
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
@@ -83,7 +108,11 @@
       const config = {
         type: "pie",
         data,
-        options: {}
+        options: {
+          parsing: {
+            key: "amount.usd",
+          }
+        }
       };
 
       // init render block
