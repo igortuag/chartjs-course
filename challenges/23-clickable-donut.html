@@ -120,7 +120,7 @@
       const myChart = new Chart(ctx, config);
 
       function pieChartCanvas(click) {
-        const points = myChart.getElementsAtEvent(
+        const clickedSlice = myChart.getElementsAtEventForMode(
           click,
           "nearest",
           {
@@ -128,9 +128,15 @@
           },
           true
         );
+        if (clickedSlice.length > 0) {
+          const clickedElementIndex = clickedSlice[0].index;
+          const url = data.datasets[0].data[clickedElementIndex].url;
+          window.open(url, "_blank");
+        }
       }
 
       ctx.onclick = pieChartCanvas;
+
     </script>
   </body>
 </html>
