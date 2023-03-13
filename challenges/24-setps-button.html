@@ -45,8 +45,8 @@
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
-        <button>Previous</button>
-        <button>Next</button>
+        <button onclick="weekData(-1)">Previous</button>
+        <button onclick="weekData(1)">Next</button>
       </div>
     </div>
 
@@ -95,8 +95,18 @@
       // init render block
       const myChart = new Chart(document.getElementById("myChart"), config);
 
-      function weekData() {
+      function weekData(next) {
+        // next could be 1 or -1
+        const currentWeek = config.options.scales.x.min;
 
+        // verify if the next week is in the range of the data
+        if (currentWeek + next < 0 || currentWeek + next > 46) {
+          return;
+        }
+        const nextWeek = currentWeek + next;
+        config.options.scales.x.min = nextWeek;
+        config.options.scales.x.max = nextWeek + 6;
+        myChart.update();
       }
     </script>
   </body>
