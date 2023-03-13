@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24 - previous and next button in the chart</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+    .chartMenu {
+      width: 100vw;
+      height: 40px;
+      background: #1a1a1a;
+      color: rgba(75, 192, 192, 1);
+    }
+    .chartMenu p {
+      padding: 10px;
+      font-size: 20px;
+    }
+    .chartCard {
+      width: 100vw;
+      height: calc(100vh - 40px);
+      background: rgba(75, 192, 192, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .chartBox {
+      width: 700px;
+      padding: 20px;
+      border-radius: 20px;
+      border: solid 3px rgba(75, 192, 192, 1);
+      background: white;
+    }
+  </style>
+  <body>
+    <div class="chartMenu">
+      <p>Chart JS 4.2.1</p>
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+        <button id="previousButton" disabled onclick="weekData(-6)">Previous</button>
+        <button id="nextButton" onclick="weekData(6)">Next</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      const week = [];
+      const weekDataPoints = []
+
+      for (let i = 0; i < 52; i++) {
+        week.push(`Week ${i + 1}`);
+        weekDataPoints.push(Math.floor(Math.random() * 100));
+      }
+
+      // data block
+      const data = {
+        labels: week,
+        datasets: [
+          {
+            label: "Weekly Data",
+            data: weekDataPoints,
+            backgroundColor:"rgba(54, 162, 235, 0.2)",
+            borderColors: "rgba(54, 162, 235, 1)",
+            borderWidth: 1
+          }
+        ]
+      };
+
+      // config block
+      const config = {
+        type: "bar",
+        data,
+        options: {
+          scales: {
+            x: {
+              min: 0,
+              max: 6,
+            },
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      };
+
+      // init render block
+      const myChart = new Chart(document.getElementById("myChart"), config);
+
+      function weekData(next) {
+        // next could be 1 or -1
+        const currentWeek = config.options.scales.x.min;
+        const nextWeek = currentWeek + next;
+
+        if (nextWeek > 0) {
+          document.getElementById("previousButton").disabled = false;
+        } else {
+          document.getElementById("previousButton").disabled = true;
+        }
+
+        if (nextWeek + 6 < 51) {
+          document.getElementById("nextButton").disabled = false;
+        } else {
+          document.getElementById("nextButton").disabled = true;
+        }
+
+        config.options.scales.x.min = nextWeek;
+        config.options.scales.x.max = nextWeek + 6;
+        myChart.update();
+      }
+    </script>
+  </body>
+</html>
