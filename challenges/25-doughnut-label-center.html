@@ -86,12 +86,13 @@
 
           ctx.save();
           ctx.fillRect(width / 2, height / 2 + top - 5, 250, 10);
+          const fontSize = options.fontSize
 
-          ctx.font = "60px Arial";
+          ctx.font = `${fontSize}px Arial`;
           ctx.fillStyle = "rgba(75, 192, 192, 1)";
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.fillText("25%", width / 2, height / 2 + top + 3)
+          ctx.fillText("25%", width / 2, height / 2 + top + fontSize / 20);
         }
       };
 
@@ -99,7 +100,14 @@
       const config = {
         type: "doughnut",
         data,
-        options: {},
+        options: {
+          plugins: {
+            doughnutLabel: {
+              text: "25%",
+              fontSize: 60
+            }
+          }
+        },
         plugins: [doughnutLabel]
       };
 
