@@ -87,12 +87,14 @@
           ctx.save();
           ctx.fillRect(width / 2, height / 2 + top - 5, 250, 10);
           const fontSize = options.fontSize
+          const color = options.color
+          const text = options.text
 
           ctx.font = `${fontSize}px Arial`;
-          ctx.fillStyle = "rgba(75, 192, 192, 1)";
+          ctx.fillStyle = color;
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.fillText("25%", width / 2, height / 2 + top + fontSize / 20);
+          ctx.fillText(text, width / 2, height / 2 + top + fontSize / 20);
         }
       };
 
@@ -104,7 +106,8 @@
           plugins: {
             doughnutLabel: {
               text: "25%",
-              fontSize: 60
+              fontSize: 100,
+              color: "rgba(75, 192, 192, 1)"
             }
           }
         },
