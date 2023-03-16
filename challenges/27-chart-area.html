@@ -79,6 +79,17 @@
         ]
       };
 
+      const chartAreaBorder = {
+        id: "chartAreaBorder",
+        beforeDraw: (chart) => {
+          const ctx = chart.ctx;
+          ctx.save();
+          ctx.strokeStyle = "rgba(75, 192, 192, 1)";
+          ctx.strokeRect(0, 0, chart.width, chart.height);
+          ctx.restore();
+        }
+      };
+
       // config block
       const config = {
         type: "bar",
@@ -89,7 +100,8 @@
               beginAtZero: true
             }
           }
-        }
+        },
+        plugins: [chartAreaBorder]
       };
 
       // init render block
