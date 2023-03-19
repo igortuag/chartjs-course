@@ -63,10 +63,18 @@
               [3, 5],
               [5, 2],
               [2, 3],
-              [3, 10],
+              [3, 10]
             ],
-            backgroundColor: barColorCode(),
-            borderColors: borderColorCode(),
+            backgroundColor: getColor(
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(75, 192, 192, 0.2)",
+              "rgba(0, 0, 0, 0.2)"
+            ),
+            borderColors: getColor(
+              "rgba(255, 99, 132, 1)",
+              "rgba(75, 192, 192, 1)",
+              "rgba(0, 0, 0, 1)"
+            ),
             borderWidth: 1,
             borderSkipped: false
           }
@@ -89,18 +97,13 @@
       // init render block
       const myChart = new Chart(document.getElementById("myChart"), config);
 
-      function barColorCode() {
+      function getColor(color1, color2, color3) {
         return (ctx) => {
+          if (ctx.dataIndex === 0) return color3;
+
           const start = ctx.parsed._custom.start;
           const end = ctx.parsed._custom.end;
-          return end < start ? "rgba(255, 99, 132, 0.2)" : "rgba(75, 192, 192, 0.2)";
-        };
-      }
-      function borderColorCode() {
-        return (ctx) => {
-          const start = ctx.parsed._custom.start;
-          const end = ctx.parsed._custom.end;
-          return end < start ? "rgba(255, 99, 132, 1)" : "rgba(75, 192, 192, 1)";
+          return end < start ? color1 : color12;
         };
       }
     </script>
