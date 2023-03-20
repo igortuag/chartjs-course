@@ -95,7 +95,24 @@
           ctx.save();
           ctx.lineWidth = 2;
           ctx.strokeStyle = "black";
-          ctx.strokeRect(x.getPixelForValue(0), y.getPixelForValue(datasets[0].data[0][1]), x.getPixelForValue(0.5), 0);
+
+          datasets[0].data.forEach((dataset, index) => {
+            if (index === datasets[0].data.length - 1) return;
+
+            const start = dataset[1];
+            const end = dataset[1];
+            const x1 = x.getPixelForValue(index);
+            const x2 = x.getPixelForValue(0.5);
+            const y1 = y.getPixelForValue(start);
+            const y2 = 0;
+
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y1);
+            ctx.lineTo(x2, y2);
+
+            ctx.strokeRect(x1, y1, x2, y2);
+          });
         }
       };
 
