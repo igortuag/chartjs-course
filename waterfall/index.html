@@ -90,6 +90,12 @@
             config,
             scales: { x, y }
           } = chart;
+          const { datasets } = config._config.data;
+
+          ctx.save();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "black";
+          ctx.strokeRect(x.getPixelForValue(0), y.getPixelForValue(datasets[0].data[0][1]), x.getPixelForValue(0.5), 0);
         }
       };
 
