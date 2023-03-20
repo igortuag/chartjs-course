@@ -84,7 +84,7 @@
       // plugin block
       const waterfallLinesPlugin = {
         id: "waterfallLines",
-        beforeDraw(chart) {
+        beforeDraw(chart, args, options) {
           const {
             ctx,
             config,
@@ -94,7 +94,7 @@
 
           ctx.save();
           ctx.lineWidth = 2;
-          ctx.strokeStyle = "black";
+          ctx.strokeStyle = options.lineColor;
 
           datasets[0].data.forEach((dataset, index) => {
             if (index === datasets[0].data.length - 1) return;
@@ -124,6 +124,9 @@
           plugins: {
             tooltip: {
               enabled: false
+            },
+            waterfallLines: {
+              lineColor: "rgba(0, 0, 0, 0.2)"
             }
           },
           scales: {
