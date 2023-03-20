@@ -81,6 +81,18 @@
         ]
       };
 
+      // plugin block
+      const waterfallLinesPlugin = {
+        id: "waterfallLines",
+        beforeDraw(chart) {
+          const {
+            ctx,
+            config,
+            scales: { x, y }
+          } = chart;
+        }
+      };
+
       // config block
       const config = {
         type: "bar",
@@ -88,7 +100,7 @@
         options: {
           plugins: {
             tooltip: {
-              display: false
+              enabled: false
             }
           },
           scales: {
@@ -96,7 +108,8 @@
               beginAtZero: true
             }
           }
-        }
+        },
+        plugins: [waterfallLinesPlugin]
       };
 
       // init render block
@@ -104,9 +117,11 @@
 
       function getColor(color1, color2, color3) {
         return (ctx) => {
-          if (ctx.dataIndex === 0 || 
-              ctx.dataIndex === ctx.dataset.data.length - 1
-          ) return color3;
+          if (
+            ctx.dataIndex === 0 ||
+            ctx.dataIndex === ctx.dataset.data.length - 1
+          )
+            return color3;
 
           const start = ctx.parsed._custom.start;
           const end = ctx.parsed._custom.end;
