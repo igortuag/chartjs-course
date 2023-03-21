@@ -95,6 +95,7 @@
           ctx.save();
           ctx.lineWidth = 2;
           ctx.strokeStyle = options.lineColor;
+          ctx.setLineDash([5, 5]);
 
           datasets[0].data.forEach((dataset, index) => {
             if (index === datasets[0].data.length - 1) return;
