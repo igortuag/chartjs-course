@@ -95,6 +95,7 @@
           ctx.save();
           ctx.lineWidth = 2;
           ctx.strokeStyle = options.lineColor;
+          ctx.setLineDash([options.linestyle1, options.linestyle2]);
 
           datasets[0].data.forEach((dataset, index) => {
             if (index === datasets[0].data.length - 1) return;
@@ -126,7 +127,9 @@
               enabled: false
             },
             waterfallLines: {
-              lineColor: "rgba(0, 0, 0, 0.2)"
+              lineColor: "rgba(0, 0, 0, 0.2)",
+              linestyle1: 5,
+              linestyle2: 2
             }
           },
           scales: {
