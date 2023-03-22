@@ -132,6 +132,13 @@
             tooltip: {
               enabled: false
             },
+            dataLabels: {
+              formatter: (value, ctx) => {
+                const start = ctx.dataset.data[ctx.dataIndex][0];
+                const end = ctx.dataset.data[ctx.dataIndex][1];
+                return end - start;
+              },
+            },
             waterfallLines: {
               lineColor: "rgba(0, 0, 0, 0.2)",
               linestyle1: 5,
