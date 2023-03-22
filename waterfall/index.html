@@ -49,6 +49,12 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"
+      integrity="sha512-R/QOHLpV1Ggq22vfDAWYOaMd5RopHrJNMxi8/lJu8Oihwi4Ho4BRFeiMiCefn9rasajKjnx9/fTQ/xkWnkDACg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <script>
       // data block
@@ -126,6 +132,12 @@
             tooltip: {
               enabled: false
             },
+            datalabels: {
+              formatter: (value) => {
+                const netVotes = Math.abs(value[1] - value[0]);
+                return `Votes: ${netVotes}`
+              },
+            },
             waterfallLines: {
               lineColor: "rgba(0, 0, 0, 0.2)",
               linestyle1: 5,
@@ -138,7 +150,7 @@
             }
           }
         },
-        plugins: [waterfallLinesPlugin]
+        plugins: [waterfallLinesPlugin, ChartDataLabels]
       };
 
       // init render block
