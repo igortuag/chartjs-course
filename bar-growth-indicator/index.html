@@ -90,6 +90,11 @@
         type: "bar",
         data,
         options: {
+          plugins: {
+            tooltip: {
+              filter: (item) => item.datasetIndex === 0,
+            },
+          },
           scales: {
             y: {
               beginAtZero: true
