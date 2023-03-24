@@ -88,49 +88,14 @@
       // barGrowthIndicator plugin
       const barGrowthIndicator = {
         id: "barGrowthIndicator",
-        beforeDraw: (chart) => {
-          const ctx = chart.ctx;
-          const { datasets } = chart.data;
-          const { x, y, width, height } = chart.chartArea;
-          const { top, bottom } = chart.scales["y"];
-          const { left, right } = chart.scales["x"];
-          const { min, max } = top;
-          const { min: min2, max: max2 } = bottom;
-          const { min: min3, max: max3 } = left;
-          const { min: min4, max: max4 } = right;
-          const { width: barWidth } =
-            chart.scales["x"].getPixelForValue(1) -
-            chart.scales["x"].getPixelForValue(0);
-          const { height: barHeight } =
-            chart.scales["y"].getPixelForValue(1) -
-            chart.scales["y"].getPixelForValue(0);
-          const { width: chartWidth } =
-            chart.scales["x"].getPixelForValue(max4) -
-            chart.scales["x"].getPixelForValue(min3);
-          const { height: chartHeight } =
-            chart.scales["y"].getPixelForValue(max2) -
-            chart.scales["y"].getPixelForValue(min);
-          const { width: chartWidth2 } =
-            chart.scales["x"].getPixelForValue(max4) -
-            chart.scales["x"].getPixelForValue(min3);
-          const { height: chartHeight2 } =
-            chart.scales["y"].getPixelForValue(max2) -
-            chart.scales["y"].getPixelForValue(min);
-          const { width: chartWidth3 } =
-            chart.scales["x"].getPixelForValue(max4) -
-            chart.scales["x"].getPixelForValue(min3);
-          const { height: chartHeight3 } =
-            chart.scales["y"].getPixelForValue(max2) -
-            chart.scales["y"].getPixelForValue(min);
-          const { width: chartWidth4 } =
-            chart.scales["x"].getPixelForValue(max4) -
-            chart.scales["x"].getPixelForValue(min3);
-          const { height: chartHeight4 } =
-            chart.scales["y"].getPixelForValue(max2) -
-            chart.scales["y"].getPixelForValue(min);
+        afterDatasetsDraw: (chart, scales, options) => {
+          const {
+            ctx,
+            scales: { x, y }
+          } = chart;
         }
       };
-      
+
       // config block
       const config = {
         type: "bar",
