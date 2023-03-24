@@ -99,7 +99,7 @@
             const basis = chart._metasets[0]._parsed[i].y;
             const delta = chart._metasets[0]._parsed[i + 1].y;
             const percentage = (delta / basis) * 100 - 100;
-            deltaPercentage.push(percentage);
+            deltaPercentage.push(percentage.toFixed(1));
           }
         }
       };
