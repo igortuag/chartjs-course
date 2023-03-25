@@ -80,9 +80,29 @@
             ],
             backgroundColor: "rgba(0,0,0, 1)",
             borderColors: "rgba(0,0,0, 1)",
-            barPercentage: 0.05,
+            barPercentage: 0.05
           }
         ]
+      };
+
+      // barGrowthIndicator plugin
+      const barGrowthIndicator = {
+        id: "barGrowthIndicator",
+        afterDatasetsDraw: (chart, scales, options) => {
+          const {
+            ctx,
+            scales: { x, y }
+          } = chart;
+          const deltaPercentage = [];
+
+          for (let i = 0; i < chart._metasets[0]._parsed.length; i++) {
+            const z = i + 1
+            const basis = chart._metasets[0]._parsed[i].y;
+            const delta = chart._metasets[0]._parsed[z].y;
+            const percentage = (delta / basis) * 100 - 100;
+            deltaPercentage.push(percentage.toFixed(1));
+          }
+        }
       };
 
       // config block
@@ -92,15 +112,16 @@
         options: {
           plugins: {
             tooltip: {
-              filter: (item) => item.datasetIndex === 0,
-            },
+              filter: (item) => item.datasetIndex === 0
+            }
           },
           scales: {
             y: {
               beginAtZero: true
             }
           }
-        }
+        },
+        plugins: [barGrowthIndicator]
       };
 
       // init render block
