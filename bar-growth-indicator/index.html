@@ -101,6 +101,9 @@
             const delta = chart._metasets[0]._parsed[z].y;
             const percentage = (delta / basis) * 100 - 100;
             deltaPercentage.push(percentage.toFixed(1));
+
+            const start = chart._metasets[0]._parsed[i]._custom.start;
+            const end = chart._metasets[0]._parsed[i]._custom.end;
           }
         }
       };
