@@ -104,6 +104,12 @@
 
             const start = chart._metasets[0]._parsed[i]._custom.start;
             const end = chart._metasets[0]._parsed[i]._custom.end;
+
+            if (end >= start) {
+              console.log("end is greater than start");
+            } else {
+              console.log("start is greater than end");
+            }
           }
         }
       };
