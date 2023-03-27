@@ -103,17 +103,22 @@
             const percentage = (delta / basis) * 100 - 100;
             deltaPercentage.push(percentage.toFixed(1));
 
-            console.log("element ::>", element);
             const start = element._custom.start;
             const end = element._custom.end;
             if (end >= start) {
               console.log("end is greater than start");
+              const startX = chart.getDatasetMeta(1).data[index].x
+              const startY = chart.getDatasetMeta(1).data[index].y
+
+              ctx.fillStyle = 'black'
+              ctx.fillRect(startX, startY, 10, 10)
+
+              console.log("startX ::>", startX);
+              console.log("startY ::>", startY);
             } else {
-              console.log("start is greater than end");
+              // console.log("start is greater than end");
             }
           });
-
-          console.log("deltaPercentage ::>", deltaPercentage);
         }
       };
 
