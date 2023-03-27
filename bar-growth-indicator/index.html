@@ -94,23 +94,33 @@
             scales: { x, y }
           } = chart;
           const deltaPercentage = [];
+          console.log(chart._metasets[0]._parsed);
 
-          for (let i = 0; i < chart._metasets[0]._parsed.length; i++) {
-            const z = i + 1
-            const basis = chart._metasets[0]._parsed[i].y;
-            const delta = chart._metasets[0]._parsed[z].y;
+          chart._metasets[0]._parsed.forEach((element, index) => {
+            if (index === chart._metasets[0]._parsed.length - 1) return;
+            const basis = element.y;
+            const delta = chart._metasets[0]._parsed[index + 1].y;
             const percentage = (delta / basis) * 100 - 100;
             deltaPercentage.push(percentage.toFixed(1));
 
-            const start = chart._metasets[0]._parsed[i]._custom.start;
-            const end = chart._metasets[0]._parsed[i]._custom.end;
-
-            if (end >= start) {
+            const start = element._custom.start;
+            const end = element._custom.end;
+            if (basis >= delta) {
               console.log("end is greater than start");
+              const startX = chart.getDatasetMeta(1).data[index].x
+              const startY = chart.getDatasetMeta(1).data[index].y
+
+              // triangle
+              ctx.beginPath();
+              ctx.moveTo(startX, startY - 2);
+              ctx.lineTo(startX - 5, startY + 5);
+              ctx.fillStyle = "black";
+              ctx.lineTo(startX + 5, startY + 5);
+              ctx.fill();
             } else {
-              console.log("start is greater than end");
+              // console.log("start is greater than end");
             }
-          }
+          });
         }
       };
 
