@@ -94,23 +94,26 @@
             scales: { x, y }
           } = chart;
           const deltaPercentage = [];
+          console.log(chart._metasets[0]._parsed);
 
-          for (let i = 0; i < chart._metasets[0]._parsed.length; i++) {
-            const z = i + 1
-            const basis = chart._metasets[0]._parsed[i].y;
-            const delta = chart._metasets[0]._parsed[z].y;
+          chart._metasets[0]._parsed.forEach((element, index) => {
+            if (index === chart._metasets[0]._parsed.length - 1) return;
+            const basis = element.y;
+            const delta = chart._metasets[0]._parsed[index + 1].y;
             const percentage = (delta / basis) * 100 - 100;
             deltaPercentage.push(percentage.toFixed(1));
 
-            const start = chart._metasets[0]._parsed[i]._custom.start;
-            const end = chart._metasets[0]._parsed[i]._custom.end;
-
+            console.log("element ::>", element);
+            const start = element._custom.start;
+            const end = element._custom.end;
             if (end >= start) {
               console.log("end is greater than start");
             } else {
               console.log("start is greater than end");
             }
-          }
+          });
+
+          console.log("deltaPercentage ::>", deltaPercentage);
         }
       };
 
