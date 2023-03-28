@@ -105,10 +105,9 @@
 
             const start = element._custom.start;
             const end = element._custom.end;
-            if (basis >= delta) {
-              console.log("end is greater than start");
-              const startX = chart.getDatasetMeta(1).data[index].x
-              const startY = chart.getDatasetMeta(1).data[index].y
+            if (basis <= delta) {
+              const startX = chart.getDatasetMeta(1).data[index].x;
+              const startY = chart.getDatasetMeta(1).data[index].y;
 
               // triangle
               ctx.beginPath();
@@ -117,8 +116,19 @@
               ctx.fillStyle = "black";
               ctx.lineTo(startX + 5, startY + 5);
               ctx.fill();
+              ctx.restore();
             } else {
-              // console.log("start is greater than end");
+              if (index + 1 > chart._metasets[0]._parsed.length - 1) return;
+              const startXDown = chart.getDatasetMeta(1).data[index]?.x;
+              const startYDown = chart.getDatasetMeta(0).data[index + 1]?.y;
+
+              ctx.beginPath();
+              ctx.moveTo(startXDown, startYDown + 3);
+              ctx.lineTo(startXDown - 5, startYDown - 5);
+              ctx.fillStyle = "black";
+              ctx.lineTo(startXDown + 5, startYDown - 5);
+              ctx.fill();
+              ctx.restore();
             }
           });
         }
