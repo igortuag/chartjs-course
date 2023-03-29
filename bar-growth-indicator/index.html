@@ -134,6 +134,13 @@
               ctx.fillStyle = "black";
               ctx.lineTo(startXDown + 5, startYDown - 5);
               ctx.fill();
+
+
+              ctx.font = "10px Arial";
+              ctx.fillStyle = "red";
+              ctx.textAlign = 'center'
+              ctx.fillText(`${deltaPercentage[index]}%`, startXDown, startYDown + 10);
+
               ctx.restore();
             }
           });
