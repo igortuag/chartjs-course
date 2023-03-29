@@ -94,7 +94,8 @@
             scales: { x, y }
           } = chart;
           const deltaPercentage = [];
-          console.log(chart._metasets[0]._parsed);
+
+          if (chart._metasets[1].hidden) return;
 
           chart._metasets[0]._parsed.forEach((element, index) => {
             if (index === chart._metasets[0]._parsed.length - 1) return;
