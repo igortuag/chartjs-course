@@ -116,6 +116,12 @@
               ctx.fillStyle = "black";
               ctx.lineTo(startX + 5, startY + 5);
               ctx.fill();
+
+              ctx.font = "10px Arial";
+              ctx.fillStyle = "green";
+              ctx.textAlign = 'center'
+              ctx.fillText(`${deltaPercentage[index]}%`, startX, startY - 6);
+
               ctx.restore();
             } else {
               if (index + 1 > chart._metasets[0]._parsed.length - 1) return;
