@@ -94,7 +94,8 @@
             scales: { x, y }
           } = chart;
           const deltaPercentage = [];
-          console.log(chart._metasets[0]._parsed);
+
+          if (chart._metasets[1].hidden) return;
 
           chart._metasets[0]._parsed.forEach((element, index) => {
             if (index === chart._metasets[0]._parsed.length - 1) return;
@@ -116,6 +117,12 @@
               ctx.fillStyle = "black";
               ctx.lineTo(startX + 5, startY + 5);
               ctx.fill();
+
+              ctx.font = "10px Arial";
+              ctx.fillStyle = "green";
+              ctx.textAlign = 'center'
+              ctx.fillText(`${deltaPercentage[index]}%`, startX, startY - 6);
+
               ctx.restore();
             } else {
               if (index + 1 > chart._metasets[0]._parsed.length - 1) return;
@@ -128,6 +135,13 @@
               ctx.fillStyle = "black";
               ctx.lineTo(startXDown + 5, startYDown - 5);
               ctx.fill();
+
+
+              ctx.font = "10px Arial";
+              ctx.fillStyle = "red";
+              ctx.textAlign = 'center'
+              ctx.fillText(`${deltaPercentage[index]}%`, startXDown, startYDown + 10);
+
               ctx.restore();
             }
           });
@@ -146,6 +160,7 @@
           },
           scales: {
             y: {
+              grace: '5%',
               beginAtZero: true
             }
           }
