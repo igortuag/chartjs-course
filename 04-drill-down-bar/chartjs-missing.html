@@ -96,7 +96,7 @@
         datasets: [
           {
             label: "Browser Data Market Share",
-            data: [12, 19, 3, 5, 2, 3],
+            data: browserData,
             backgroundColor: browserData.map((item) => item.color),
             borderColors:  browserData.map((item) => item.color),
             borderWidth: 1
@@ -109,6 +109,10 @@
         type: "bar",
         data,
         options: {
+          parsing: {
+            xAxisKey: "browser",
+            yAxisKey: "marketshare"
+          },
           scales: {
             y: {
               beginAtZero: true
