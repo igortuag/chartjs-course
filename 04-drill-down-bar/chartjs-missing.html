@@ -98,7 +98,7 @@
             label: "Browser Data Market Share",
             data: browserData,
             backgroundColor: browserData.map((item) => item.color),
-            borderColors:  browserData.map((item) => item.color),
+            borderColors: browserData.map((item) => item.color),
             borderWidth: 1
           }
         ]
@@ -109,6 +109,9 @@
         type: "bar",
         data,
         options: {
+          onHover: (event, chartElement) => {
+            event.target.style.cursor = chartElement[0] ? "pointer" : "default";
+          },
           parsing: {
             xAxisKey: "browser",
             yAxisKey: "marketshare"
