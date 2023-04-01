@@ -125,7 +125,8 @@
       };
 
       // init render block
-      const myChart = new Chart(document.getElementById("myChart"), config);
+      const ctx = document.getElementById("myChart")
+      const myChart = new Chart(ctx, config);
     </script>
   </body>
 </html>
