@@ -125,7 +125,19 @@
       };
 
       // init render block
-      const myChart = new Chart(document.getElementById("myChart"), config);
+      const ctx = document.getElementById("myChart")
+      const myChart = new Chart(ctx, config);
+
+      function changeChart(value) {
+        console.log(value);
+      }
+
+      ctx.onclick = (event) => {
+        const activePoints = myChart.getElementsAtEventForMode(event, 'nearest', { intersect: true }, true);
+        if (activePoints.length > 0) {
+          changeChart(activePoints[0].index)
+        }
+      };
     </script>
   </body>
 </html>
