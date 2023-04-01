@@ -127,6 +127,16 @@
       // init render block
       const ctx = document.getElementById("myChart")
       const myChart = new Chart(ctx, config);
+
+      ctx.onclick = (event) => {
+        const activePoints = myChart.getElementsAtEvent(event);
+        if (activePoints.length > 0) {
+          const clickedElementIndex = activePoints[0].index;
+          const label = myChart.data.labels[clickedElementIndex];
+          const value = myChart.data.datasets[0].data[clickedElementIndex];
+          console.log(label, value);
+        }
+      };
     </script>
   </body>
 </html>
