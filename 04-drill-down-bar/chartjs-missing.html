@@ -132,6 +132,12 @@
         const browser = browserData[index];
         myChart.config.options.parsing.xAxisKey = "versionData.version"
         myChart.config.options.parsing.yAxisKey = "versionData.users"
+
+        const vColor = browser.color;
+        const vUsers = browser.versionData
+        const vLabel = browser.versionData.map((item) => item.version);
+
+        console.log(vColor, vUsers, vLabel);
       }
 
       ctx.onclick = (event) => {
