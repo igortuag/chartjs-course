@@ -128,8 +128,10 @@
       const ctx = document.getElementById("myChart")
       const myChart = new Chart(ctx, config);
 
-      function changeChart(value) {
-        console.log(value);
+      function changeChart(index) {
+        const browser = browserData[index];
+        myChart.config.options.parsing.xAxisKey = "versionData.version"
+        myChart.config.options.parsing.yAxisKey = "versionData.users"
       }
 
       ctx.onclick = (event) => {
