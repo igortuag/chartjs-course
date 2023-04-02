@@ -110,7 +110,9 @@
         data,
         options: {
           onHover: (event, chartElement) => {
-            event.native.target.style.cursor = chartElement[0] ? "pointer" : "default";
+            event.native.target.style.cursor = chartElement[0]
+              ? "pointer"
+              : "default";
           },
           parsing: {
             xAxisKey: "browser",
@@ -125,25 +127,39 @@
       };
 
       // init render block
-      const ctx = document.getElementById("myChart")
+      const ctx = document.getElementById("myChart");
       const myChart = new Chart(ctx, config);
 
       function changeChart(index) {
         const browser = browserData[index];
-        myChart.config.options.parsing.xAxisKey = "versionData.version"
-        myChart.config.options.parsing.yAxisKey = "versionData.users"
+        myChart.config.options.parsing.xAxisKey = "versionData.version";
+        myChart.config.options.parsing.yAxisKey = "versionData.users";
 
-        const vColor = browser.color;
-        const vUsers = browser.versionData
-        const vLabel = browser.versionData.map((item) => item.version);
+        const vColor = [];
+        const vUsers = [];
+        const vLabel = browser.versionData.map((item) => {
+          vUsers.push(item.users);
+          vColor.push(browser.color);
+          item.version;
+        });
 
-        console.log(vColor, vUsers, vLabel);
+        myChart.config.data.datasets[0].label = browser.browser;
+        myChart.config.data.datasets[0].backgroundColor = vColor;
+        myChart.config.data.datasets[0].borderColor = vColor;
+        myChart.config.data.datasets[0].data = vUsers;
+        myChart.config.data.labels = vLabel;
+        myChart.update();
       }
 
       ctx.onclick = (event) => {
-        const activePoints = myChart.getElementsAtEventForMode(event, 'nearest', { intersect: true }, true);
+        const activePoints = myChart.getElementsAtEventForMode(
+          event,
+          "nearest",
+          { intersect: true },
+          true
+        );
         if (activePoints.length > 0) {
-          changeChart(activePoints[0].index)
+          changeChart(activePoints[0].index);
         }
       };
     </script>
