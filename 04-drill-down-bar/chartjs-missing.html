@@ -140,14 +140,14 @@
         const vLabel = browser.versionData.map((item) => {
           vUsers.push(item.users);
           vColor.push(browser.color);
-          item.version;
+         return item.version;
         });
 
+        myChart.config.data.labels = vLabel;
         myChart.config.data.datasets[0].label = browser.browser;
+        myChart.config.data.datasets[0].data = vUsers;
         myChart.config.data.datasets[0].backgroundColor = vColor;
         myChart.config.data.datasets[0].borderColor = vColor;
-        myChart.config.data.datasets[0].data = vUsers;
-        myChart.config.data.labels = vLabel;
         myChart.update();
       }
 
