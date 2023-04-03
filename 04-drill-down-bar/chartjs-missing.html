@@ -104,15 +104,20 @@
         ]
       };
 
+      const isFirstState = () => {
+        return (
+          myChart.config.data.datasets[0].label === "Browser Data Market Share"
+        );
+      };
+
       // config block
       const config = {
         type: "bar",
         data,
         options: {
           onHover: (event, chartElement) => {
-            event.native.target.style.cursor = chartElement[0]
-              ? "pointer"
-              : "default";
+            event.native.target.style.cursor =
+              chartElement[0] && isFirstState() ? "pointer" : "default";
           },
           parsing: {
             xAxisKey: "browser",
@@ -140,7 +145,7 @@
         const vLabel = browser.versionData.map((item) => {
           vUsers.push(item.users);
           vColor.push(browser.color);
-         return item.version;
+          return item.version;
         });
 
         myChart.config.data.labels = vLabel;
@@ -158,7 +163,7 @@
           { intersect: true },
           true
         );
-        if (activePoints.length > 0) {
+        if (activePoints.length > 0 && isFirstState()) {
           changeChart(activePoints[0].index);
         }
       };
