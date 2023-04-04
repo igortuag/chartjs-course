@@ -112,16 +112,22 @@
 
       // resetButton block
       const resetButton = {
-        id: 'resetButton',
-        beforeDrown: (chart) => {
-          const ctx = chart.ctx;
-          ctx.fillStyle = "rgba(75, 192, 192, 1)";
-          ctx.font = "20px Arial";
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.fillText("Reset", 50, 50);
-        },
-      }
+        id: "resetButton",
+        beforeDraw: (chart, args, options) => {
+          const {
+            ctx,
+            chartArea: { top, left, bottom, right, width, height }
+          } = chart;
+          ctx.save();
+
+          const text = "Back";
+          const thickBorder = 3;
+
+          ctx.fillStyle = "#666";
+          ctx.font = "12px Arial";
+          ctx.fillText(text, right - 50, top);
+        }
+      };
 
       // config block
       const config = {
