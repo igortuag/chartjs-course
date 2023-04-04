@@ -110,6 +110,19 @@
         );
       };
 
+      // resetButton block
+      const resetButton = {
+        id: 'resetButton',
+        beforeDrown: (chart) => {
+          const ctx = chart.ctx;
+          ctx.fillStyle = "rgba(75, 192, 192, 1)";
+          ctx.font = "20px Arial";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText("Reset", 50, 50);
+        },
+      }
+
       // config block
       const config = {
         type: "bar",
@@ -128,7 +141,8 @@
               beginAtZero: true
             }
           }
-        }
+        },
+        plugins: [resetButton]
       };
 
       // init render block
