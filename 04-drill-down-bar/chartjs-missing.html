@@ -122,10 +122,11 @@
 
           const text = "Back";
           const thickBorder = 3;
+          const textWidth = ctx.measureText(text).width;
 
           ctx.fillStyle = "#666";
           ctx.font = "12px Arial";
-          ctx.fillText(text, right - 50, top);
+          ctx.fillText(text, right - textWidth, top);
         }
       };
 
