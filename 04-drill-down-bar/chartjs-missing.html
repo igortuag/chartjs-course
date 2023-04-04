@@ -110,6 +110,38 @@
         );
       };
 
+      // resetButton block
+      const resetButton = {
+        id: "resetButton",
+        beforeDraw: (chart, args, options) => {
+          const {
+            ctx,
+            chartArea: { top, left, bottom, right, width, height }
+          } = chart;
+          ctx.save();
+
+          const text = "Back";
+          const thickBorder = 3;
+          const textWidth = ctx.measureText(text).width;
+          const padding = 10
+          const paddingRight = padding / 2
+
+          // background button
+          ctx.fillStyle = "rgba(75, 192, 192, 0.2)";
+          ctx.fillRect(right - (textWidth + 2 + padding), 5, textWidth + padding, 20);
+
+          // text button
+          ctx.fillStyle = "#666";
+          ctx.font = "12px Arial";
+          ctx.fillText(text, right - (textWidth + 2 + paddingRight), 15);
+
+          // border button
+          ctx.lineWidth = thickBorder;
+          ctx.strokeStyle = "rgba(75, 192, 192, 1)";
+          ctx.strokeRect(right - (textWidth + 2 + padding), 5, textWidth + padding, 20);
+        }
+      };
+
       // config block
       const config = {
         type: "bar",
@@ -128,7 +160,8 @@
               beginAtZero: true
             }
           }
-        }
+        },
+        plugins: [resetButton]
       };
 
       // init render block
