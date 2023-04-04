@@ -240,6 +240,20 @@
           ctx.style.cursor = "default";
         }
       });
+
+      ctx.addEventListener("click", (event) => {
+        const x = event.offsetX;
+        const y = event.offsetY;
+
+        if (
+          x >= coordinates.left &&
+          x <= coordinates.right &&
+          y >= coordinates.top &&
+          y <= coordinates.bottom
+        ) {
+          console.log("click");
+        }
+      });
     </script>
   </body>
 </html>
