@@ -51,6 +51,13 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+      const coordinates = {
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0
+      };
+
       // mock data
       const browserData = [
         {
@@ -123,12 +130,17 @@
           const text = "Back";
           const thickBorder = 3;
           const textWidth = ctx.measureText(text).width;
-          const padding = 10
-          const paddingRight = padding / 2
+          const padding = 10;
+          const paddingRight = padding / 2;
 
           // background button
           ctx.fillStyle = "rgba(75, 192, 192, 0.2)";
-          ctx.fillRect(right - (textWidth + 2 + padding), 5, textWidth + padding, 20);
+          ctx.fillRect(
+            right - (textWidth + 2 + padding),
+            5,
+            textWidth + padding,
+            20
+          );
 
           // text button
           ctx.fillStyle = "#666";
@@ -138,7 +150,19 @@
           // border button
           ctx.lineWidth = thickBorder;
           ctx.strokeStyle = "rgba(75, 192, 192, 1)";
-          ctx.strokeRect(right - (textWidth + 2 + padding), 5, textWidth + padding, 20);
+          ctx.strokeRect(
+            right - (textWidth + 2 + padding),
+            5,
+            textWidth + padding,
+            20
+          );
+
+          coordinates.top = 5;
+          coordinates.left = right - (textWidth + 2 + padding);
+          coordinates.bottom = 25;
+          coordinates.right = right;
+
+          ctx.restore();
         }
       };
 
@@ -200,6 +224,22 @@
           changeChart(activePoints[0].index);
         }
       };
+
+      ctx.addEventListener("mousemove", (event) => {
+        const x = event.offsetX;
+        const y = event.offsetY;
+
+        if (
+          x >= coordinates.left &&
+          x <= coordinates.right &&
+          y >= coordinates.top &&
+          y <= coordinates.bottom
+        ) {
+          ctx.style.cursor = "pointer";
+        } else {
+          ctx.style.cursor = "default";
+        }
+      });
     </script>
   </body>
 </html>
