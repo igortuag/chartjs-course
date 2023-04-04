@@ -225,16 +225,20 @@
         }
       };
 
-      ctx.addEventListener("mousemove", (event) => {
+      function isOnButton(event) {
         const x = event.offsetX;
         const y = event.offsetY;
 
-        if (
+        return (
           x >= coordinates.left &&
           x <= coordinates.right &&
           y >= coordinates.top &&
           y <= coordinates.bottom
-        ) {
+        );
+      }
+
+      ctx.addEventListener("mousemove", (event) => {
+        if (isOnButton(event)) {
           ctx.style.cursor = "pointer";
         } else {
           ctx.style.cursor = "default";
@@ -242,15 +246,7 @@
       });
 
       ctx.addEventListener("click", (event) => {
-        const x = event.offsetX;
-        const y = event.offsetY;
-
-        if (
-          x >= coordinates.left &&
-          x <= coordinates.right &&
-          y >= coordinates.top &&
-          y <= coordinates.bottom
-        ) {
+        if (isOnButton(event)) {
           console.log("click");
         }
       });
