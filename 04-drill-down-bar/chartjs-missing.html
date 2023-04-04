@@ -124,9 +124,15 @@
           const thickBorder = 3;
           const textWidth = ctx.measureText(text).width;
 
+          // text button
           ctx.fillStyle = "#666";
           ctx.font = "12px Arial";
-          ctx.fillText(text, right - textWidth, top);
+          ctx.fillText(text, right - (textWidth + 2), 15);
+
+          // border button
+          ctx.lineWidth = thickBorder;
+          ctx.strokeStyle = "rgba(75, 192, 192, 1)";
+          ctx.strokeRect(right - (textWidth + 2), 5, textWidth, 20);
         }
       };
 
