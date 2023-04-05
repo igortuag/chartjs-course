@@ -247,20 +247,25 @@
 
       ctx.addEventListener("click", (event) => {
         if (isOnButton(event)) {
-          // reset chart
           myChart.config.options.parsing.xAxisKey = "browser";
           myChart.config.options.parsing.yAxisKey = "marketshare";
-          myChart.config.data.labels = browserData.map((item) => item.browser);
+
+          const bColor = [];
+          const bMarketShare = [];
+          const bLabel = (myChart.config.data.labels = browserData.map(
+            (item) => {
+              bMarketShare.push(item.marketshare);
+              bColor.push(item.color);
+              return item.browser;
+            }
+          ));
+
           myChart.config.data.datasets[0].label = "Browser Data Market Share";
-          myChart.config.data.datasets[0].data = browserData.map(
-            (item) => item.marketshare
-          );
-          myChart.config.data.datasets[0].backgroundColor = browserData.map(
-            (item) => item.color
-          );
-          myChart.config.data.datasets[0].borderColor = browserData.map(
-            (item) => item.color
-          );
+          myChart.config.data.datasets[0].data = bMarketShare
+          myChart.config.data.labels = bLabel
+          myChart.config.data.datasets[0].backgroundColor = bColor
+          myChart.config.data.datasets[0].borderColor = bColor
+
           myChart.update();
         }
       });
