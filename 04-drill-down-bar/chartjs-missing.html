@@ -121,6 +121,8 @@
       const resetButton = {
         id: "resetButton",
         beforeDraw: (chart, args, options) => {
+          if (isFirstState()) return;
+
           const {
             ctx,
             chartArea: { top, left, bottom, right, width, height }
