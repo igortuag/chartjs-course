@@ -228,6 +228,8 @@
       };
 
       function isOnButton(event) {
+        if (isFirstState()) return false;
+
         const x = event.offsetX;
         const y = event.offsetY;
 
