@@ -121,6 +121,8 @@
       const resetButton = {
         id: "resetButton",
         beforeDraw: (chart, args, options) => {
+          if (isFirstState()) return;
+
           const {
             ctx,
             chartArea: { top, left, bottom, right, width, height }
@@ -226,6 +228,8 @@
       };
 
       function isOnButton(event) {
+        if (isFirstState()) return false;
+
         const x = event.offsetX;
         const y = event.offsetY;
 
@@ -238,6 +242,7 @@
       }
 
       ctx.addEventListener("mousemove", (event) => {
+        myChart.resize();
         if (isOnButton(event)) {
           ctx.style.cursor = "pointer";
         } else {
@@ -247,6 +252,7 @@
 
       ctx.addEventListener("click", (event) => {
         if (isOnButton(event)) {
+          myChart.resize();
           myChart.config.options.parsing.xAxisKey = "browser";
           myChart.config.options.parsing.yAxisKey = "marketshare";
 
@@ -261,10 +267,10 @@
           ));
 
           myChart.config.data.datasets[0].label = "Browser Data Market Share";
-          myChart.config.data.datasets[0].data = bMarketShare
-          myChart.config.data.labels = bLabel
-          myChart.config.data.datasets[0].backgroundColor = bColor
-          myChart.config.data.datasets[0].borderColor = bColor
+          myChart.config.data.datasets[0].data = bMarketShare;
+          myChart.config.data.labels = bLabel;
+          myChart.config.data.datasets[0].backgroundColor = bColor;
+          myChart.config.data.datasets[0].borderColor = bColor;
 
           myChart.update();
         }
