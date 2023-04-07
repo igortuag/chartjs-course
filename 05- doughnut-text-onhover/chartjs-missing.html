@@ -82,7 +82,14 @@
 
       // hoverLabels plugin block
       const hoverLabels = {
-        id: "hoverLabels"
+        id: "hoverLabels",
+        afterDraw(chart, args, options) {
+          const {
+            ctx,
+            chartArea: { top, bottom, left, right, width, height }
+          } = chart;
+          ctx.save();
+        }
       };
 
       // config block
