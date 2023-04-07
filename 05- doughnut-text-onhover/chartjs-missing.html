@@ -80,11 +80,17 @@
         ]
       };
 
+      // hoverLabels plugin block
+      const hoverLabels = {
+        id: "hoverLabels"
+      };
+
       // config block
       const config = {
         type: "doughnut",
         data,
-        options: {}
+        options: {},
+        plugins: [hoverLabels]
       };
 
       // init render block
