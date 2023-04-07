@@ -89,6 +89,11 @@
             chartArea: { top, bottom, left, right, width, height }
           } = chart;
           ctx.save();
+
+          ctx.font = 'bolder 60px Arial'
+          ctx.fillStyle = 'blue'
+          ctx.textAlign = 'center'
+          ctx.fillText('Hello', left + width / 2, top + height / 2)
         }
       };
 
