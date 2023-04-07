@@ -31,7 +31,7 @@
       justify-content: center;
     }
     .chartBox {
-      width: 700px;
+      width: 400px;
       padding: 20px;
       border-radius: 20px;
       border: solid 3px rgba(75, 192, 192, 1);
@@ -81,15 +81,9 @@
 
       // config block
       const config = {
-        type: "bar",
+        type: "doughnut",
         data,
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
+        options: {}
       };
 
       // init render block
