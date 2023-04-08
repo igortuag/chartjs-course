@@ -93,7 +93,9 @@
           ctx.font = 'bolder 60px Arial'
           ctx.fillStyle = 'blue'
           ctx.textAlign = 'center'
-          ctx.fillText('Hello', left + width / 2, top + height / 2)
+          const xPosition = left + width / 2
+          const yPosition = top + height / 2
+          ctx.fillText('Hello', xPosition, yPosition)
         }
       };
 
