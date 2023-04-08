@@ -90,12 +90,14 @@
           } = chart;
           ctx.save();
 
-          ctx.font = 'bolder 60px Arial'
-          ctx.fillStyle = 'blue'
-          ctx.textAlign = 'center'
-          const xPosition = left + width / 2
-          const yPosition = top + height / 2 + 30
-          ctx.fillText('Hello', xPosition, yPosition)
+          if (chart._active[0]) {
+            ctx.font = "bolder 60px Arial";
+            ctx.fillStyle = "blue";
+            ctx.textAlign = "center";
+            const xPosition = left + width / 2;
+            const yPosition = top + height / 2 + 30;
+            ctx.fillText("Hello", xPosition, yPosition);
+          }
         }
       };
 
@@ -107,7 +109,7 @@
           plugins: {
             legend: {
               display: false
-            },
+            }
           }
         },
         plugins: [hoverLabels]
