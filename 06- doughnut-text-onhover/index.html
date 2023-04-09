@@ -92,12 +92,13 @@
 
           if (chart._active[0]) {
             ctx.font = "bolder 60px Arial";
-            ctx.fillStyle = "blue";
             ctx.textAlign = "center";
             const xPosition = left + width / 2;
             const yPosition = top + height / 2 + 30;
 
             const index = chart._active[0].index;
+
+            ctx.fillStyle = data.datasets[0].borderColors[index];
             const textContent = index;
 
             ctx.fillText(textContent, xPosition, yPosition);
