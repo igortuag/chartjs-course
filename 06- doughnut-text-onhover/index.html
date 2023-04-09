@@ -99,7 +99,7 @@
             const index = chart._active[0].index;
 
             ctx.fillStyle = data.datasets[0].borderColors[index];
-            const textContent = index;
+            const textContent = data.datasets[0].data[index];
 
             ctx.fillText(textContent, xPosition, yPosition);
           }
