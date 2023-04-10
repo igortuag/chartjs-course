@@ -87,6 +87,17 @@
             chartArea: { left, top, right, bottom },
             scales: { x, y }
           } = chart;
+
+          ctx.save();
+
+          ctx.beginPath();
+          ctx.lineWidth = 3;
+          ctx.strokeStyle = "rgba(255, 99, 132, 1)";
+          ctx.moveTo(left, bottom);
+          ctx.lineTo(right, bottom);
+          ctx.stroke();
+          ctx.closePath();
+          ctx.restore();
         }
       };
 
