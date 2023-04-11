@@ -90,18 +90,19 @@
 
           ctx.save();
 
-          function drawLines() {
+          function drawLines(yValue, color) {
             ctx.beginPath();
             ctx.lineWidth = 3;
-            ctx.strokeStyle = "rgba(255, 99, 132, 1)";
-            ctx.moveTo(left, y.getPixelForValue(12));
-            ctx.lineTo(right, y.getPixelForValue(12));
+            ctx.strokeStyle = color;
+            ctx.moveTo(left, y.getPixelForValue(yValue));
+            ctx.lineTo(right, y.getPixelForValue(yValue));
             ctx.stroke();
             ctx.closePath();
             ctx.restore();
           }
 
-          drawLines()
+          drawLines(12, "rgba(255, 99, 132, 1)")
+          drawLines(4, "rgba(255, 206, 86, 1)")
         }
       };
 
