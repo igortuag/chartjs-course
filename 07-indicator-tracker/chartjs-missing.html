@@ -90,14 +90,18 @@
 
           ctx.save();
 
-          ctx.beginPath();
-          ctx.lineWidth = 3;
-          ctx.strokeStyle = "rgba(255, 99, 132, 1)";
-          ctx.moveTo(left, y.getPixelForValue(12));
-          ctx.lineTo(right, y.getPixelForValue(12));
-          ctx.stroke();
-          ctx.closePath();
-          ctx.restore();
+          function drawLines() {
+            ctx.beginPath();
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = "rgba(255, 99, 132, 1)";
+            ctx.moveTo(left, y.getPixelForValue(12));
+            ctx.lineTo(right, y.getPixelForValue(12));
+            ctx.stroke();
+            ctx.closePath();
+            ctx.restore();
+          }
+
+          drawLines()
         }
       };
 
