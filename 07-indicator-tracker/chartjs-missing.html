@@ -133,9 +133,11 @@
         const status = document.getElementById("status");
 
         if (dataPoints[dataPointsLength] > 12) {
-          status.innerText = "Success";
+          status.innerText = "Danger";
+        } else if (dataPoints[dataPointsLength] > 4) {
+          status.innerText = "Please Reset System";
         } else {
-          status.innerText = "Failure";
+          status.innerText = "Success";
         }
       }
     </script>
