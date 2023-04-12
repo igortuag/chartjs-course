@@ -46,6 +46,9 @@
       <div class="chartBox">
         <canvas id="myChart"></canvas>
       </div>
+      <div class="chartBox">
+        <p>Status: <span id="status">Success</span></p>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -101,8 +104,9 @@
             ctx.restore();
           }
 
-          drawLines(12, "rgba(255, 99, 132, 1)")
-          drawLines(4, "rgba(255, 206, 86, 1)")
+          tracker()
+          drawLines(12, "rgba(255, 99, 132, 1)");
+          drawLines(4, "rgba(255, 206, 86, 1)");
         }
       };
 
@@ -122,6 +126,20 @@
 
       // init render block
       const myChart = new Chart(document.getElementById("myChart"), config);
+
+      function tracker() {
+        const dataPoints = myChart.data.datasets[0].data;
+        const dataPointsLength = dataPoints.length - 1
+        const status = document.getElementById("status");
+
+        if (dataPoints[dataPointsLength] > 12) {
+          status.innerText = "Danger";
+        } else if (dataPoints[dataPointsLength] > 4) {
+          status.innerText = "Please Reset System";
+        } else {
+          status.innerText = "Success";
+        }
+      }
     </script>
   </body>
 </html>
