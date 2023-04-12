@@ -128,6 +128,14 @@
 
       function tracker() {
         const dataPoints = myChart.data.datasets[0].data;
+        const dataPointsLength = dataPoints.length - 1
+        const status = document.getElementById("status");
+
+        if (dataPoints[dataPointsLength] > 12) {
+          status.innerText = "Success";
+        } else {
+          status.innerText = "Failure";
+        }
       }
     </script>
   </body>
