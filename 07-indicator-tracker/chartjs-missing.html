@@ -47,9 +47,7 @@
         <canvas id="myChart"></canvas>
       </div>
       <div class="chartBox">
-        <p>
-          Status: <span id="status">Success</span>
-        </p>
+        <p>Status: <span id="status">Success</span></p>
       </div>
     </div>
 
@@ -127,6 +125,10 @@
 
       // init render block
       const myChart = new Chart(document.getElementById("myChart"), config);
+
+      function tracker() {
+        const dataPoints = myChart.data.datasets[0].data;
+      }
     </script>
   </body>
 </html>
