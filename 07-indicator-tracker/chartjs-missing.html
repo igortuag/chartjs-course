@@ -45,6 +45,7 @@
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
+        <button onclick="addValue(this)" value="20">Danger Zone</button>
       </div>
       <div class="chartBox">
         <p>Status: <span id="status">Success</span></p>
@@ -104,7 +105,7 @@
             ctx.restore();
           }
 
-          tracker()
+          tracker();
           drawLines(12, "rgba(255, 99, 132, 1)");
           drawLines(4, "rgba(255, 206, 86, 1)");
         }
@@ -129,7 +130,7 @@
 
       function tracker() {
         const dataPoints = myChart.data.datasets[0].data;
-        const dataPointsLength = dataPoints.length - 1
+        const dataPointsLength = dataPoints.length - 1;
         const status = document.getElementById("status");
 
         if (dataPoints[dataPointsLength] > 12) {
