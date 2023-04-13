@@ -143,6 +143,13 @@
           status.innerText = "Success";
         }
       }
+
+      function addValue(e) {
+        const value = e.value;
+        myChart.data.datasets[0].data.push(value);
+        myChart.data.labels.push("New Value");
+        myChart.update();
+      }
     </script>
   </body>
 </html>
