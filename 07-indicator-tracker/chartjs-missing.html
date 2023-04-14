@@ -137,10 +137,13 @@
 
         if (dataPoints[dataPointsLength] > 12) {
           status.innerText = "Danger";
+          status.style.color = "red";
         } else if (dataPoints[dataPointsLength] > 4) {
           status.innerText = "Please Reset System";
+          status.style.color = "orange";
         } else {
           status.innerText = "Success";
+          status.style.color = "green";
         }
       }
 
