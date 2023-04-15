@@ -94,6 +94,20 @@
 
       // init render block
       const myChart = new Chart(document.getElementById("myChart"), config);
+
+      // crosshair block
+      function crosshair(chart, e) {
+        const { top, left } = chart.canvas.getBoundingClientRect()
+        const x = e.clientX - left
+        const y = e.clientY - top
+        const index = chart.scales['y'].getValueForPixel(y)
+        const label = chart.data.labels[chart.scales['x'].getValueForPixel(x)]
+        console.log(index, label)
+      }
+
+      myChart.canvas.addEventListener('mousemove', (e) => {
+        crosshair(myChart, e)
+      })
     </script>
   </body>
 </html>
