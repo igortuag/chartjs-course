@@ -101,12 +101,21 @@
           ctx,
           chartArea: { top, bottom, left, right, width, height },
           scales: { x, y }
-        } = chart.canvas.getBoundingClientRect();
+        } = chart;
 
+        
         ctx.strokeStyle = "rgba(102, 102, 102, 1)";
         ctx.lineWidth = 1;
+        
+        const xCoor = e.offsetX;
+        const yCoor = e.offsetY;
+        console.log(xCoor, yCoor);
 
         ctx.beginPath();
+        ctx.moveTo(left, yCoor);
+        ctx.lineTo(right, yCoor);
+        ctx.stroke();
+        ctx.closePath();
       }
 
       myChart.canvas.addEventListener("mousemove", (e) => {
