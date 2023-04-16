@@ -102,6 +102,11 @@
           chartArea: { top, bottom, left, right, width, height },
           scales: { x, y }
         } = chart.canvas.getBoundingClientRect();
+
+        ctx.strokeStyle = "rgba(102, 102, 102, 1)";
+        ctx.lineWidth = 1;
+
+        ctx.beginPath();
       }
 
       myChart.canvas.addEventListener("mousemove", (e) => {
