@@ -109,11 +109,16 @@
         
         const xCoor = e.offsetX;
         const yCoor = e.offsetY;
-        console.log(xCoor, yCoor);
+
+        // ctx.beginPath();
+        // ctx.moveTo(left, yCoor);
+        // ctx.lineTo(right, yCoor);
+        // ctx.stroke();
+        // ctx.closePath();
 
         ctx.beginPath();
-        ctx.moveTo(left, yCoor);
-        ctx.lineTo(right, yCoor);
+        ctx.moveTo(xCoor, top);
+        ctx.lineTo(xCoor, bottom);
         ctx.stroke();
         ctx.closePath();
       }
