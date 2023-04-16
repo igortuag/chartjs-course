@@ -97,17 +97,35 @@
 
       // crosshair block
       function crosshair(chart, e) {
-        const { top, left } = chart.canvas.getBoundingClientRect()
-        const x = e.clientX - left
-        const y = e.clientY - top
-        const index = chart.scales['y'].getValueForPixel(y)
-        const label = chart.data.labels[chart.scales['x'].getValueForPixel(x)]
-        console.log(index, label)
+        const {
+          ctx,
+          chartArea: { top, bottom, left, right, width, height },
+          scales: { x, y }
+        } = chart;
+
+        
+        ctx.strokeStyle = "rgba(102, 102, 102, 1)";
+        ctx.lineWidth = 1;
+        
+        const xCoor = e.offsetX;
+        const yCoor = e.offsetY;
+
+        // ctx.beginPath();
+        // ctx.moveTo(left, yCoor);
+        // ctx.lineTo(right, yCoor);
+        // ctx.stroke();
+        // ctx.closePath();
+
+        ctx.beginPath();
+        ctx.moveTo(xCoor, top);
+        ctx.lineTo(xCoor, bottom);
+        ctx.stroke();
+        ctx.closePath();
       }
 
-      myChart.canvas.addEventListener('mousemove', (e) => {
-        crosshair(myChart, e)
-      })
+      myChart.canvas.addEventListener("mousemove", (e) => {
+        crosshair(myChart, e);
+      });
     </script>
   </body>
 </html>
