@@ -123,17 +123,16 @@
           yCoor >= top &&
           yCoor <= bottom
         ) {
-          ctx.beginPath();
-          ctx.moveTo(left, yCoor);
-          ctx.lineTo(right, yCoor);
-          ctx.stroke();
-          ctx.closePath();
+          function drawLine(xStart, yStart, xEnd, yEnd) {
+            ctx.beginPath();
+            ctx.moveTo(xStart, yStart);
+            ctx.lineTo(xEnd, yEnd);
+            ctx.stroke();
+            ctx.closePath();
+          }
 
-          ctx.beginPath();
-          ctx.moveTo(xCoor, top);
-          ctx.lineTo(xCoor, bottom);
-          ctx.stroke();
-          ctx.closePath();
+          drawLine(left, yCoor, right, yCoor);
+          drawLine(xCoor, top, xCoor, bottom);
         }
       }
 
