@@ -117,7 +117,12 @@
         const xCoor = e.offsetX;
         const yCoor = e.offsetY;
 
-        if (xCoor >= left && xCoor <= right) {
+        if (
+          xCoor >= left &&
+          xCoor <= right &&
+          yCoor >= top &&
+          yCoor <= bottom
+        ) {
           ctx.beginPath();
           ctx.moveTo(left, yCoor);
           ctx.lineTo(right, yCoor);
