@@ -74,16 +74,22 @@
               "rgba(153, 102, 255, 1)",
               "rgba(255, 159, 64, 1)"
             ],
-            borderWidth: 1
+            hitRadius: 0,
+            pointRadius: 0
           }
         ]
       };
 
       // config block
       const config = {
-        type: "bar",
+        type: "line",
         data,
         options: {
+          plugins: {
+            tooltip: {
+              enabled: false
+            }
+          },
           scales: {
             y: {
               beginAtZero: true
@@ -97,30 +103,37 @@
 
       // crosshair block
       function crosshair(chart, e) {
+        chart.update("none");
+
         const {
           ctx,
           chartArea: { top, bottom, left, right, width, height },
           scales: { x, y }
         } = chart;
 
-        
         ctx.strokeStyle = "rgba(102, 102, 102, 1)";
         ctx.lineWidth = 1;
-        
+
         const xCoor = e.offsetX;
         const yCoor = e.offsetY;
 
-        // ctx.beginPath();
-        // ctx.moveTo(left, yCoor);
-        // ctx.lineTo(right, yCoor);
-        // ctx.stroke();
-        // ctx.closePath();
+        if (
+          xCoor >= left &&
+          xCoor <= right &&
+          yCoor >= top &&
+          yCoor <= bottom
+        ) {
+          function drawLine(xStart, yStart, xEnd, yEnd) {
+            ctx.beginPath();
+            ctx.moveTo(xStart, yStart);
+            ctx.lineTo(xEnd, yEnd);
+            ctx.stroke();
+            ctx.closePath();
+          }
 
-        ctx.beginPath();
-        ctx.moveTo(xCoor, top);
-        ctx.lineTo(xCoor, bottom);
-        ctx.stroke();
-        ctx.closePath();
+          drawLine(left, yCoor, right, yCoor);
+          drawLine(xCoor, top, xCoor, bottom);
+        }
       }
 
       myChart.canvas.addEventListener("mousemove", (e) => {
