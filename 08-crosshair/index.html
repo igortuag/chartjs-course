@@ -133,6 +133,11 @@
 
           drawLine(left, yCoor, right, yCoor);
           drawLine(xCoor, top, xCoor, bottom);
+
+          ctx.beginPath();
+          const labelHeight = 24;
+          ctx.fillStyle = "rgba(102, 102, 102, 1)";
+          ctx.fillRect(0, yCoor - labelHeight / 2, left, labelHeight);
         }
       }
 
