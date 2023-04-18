@@ -85,6 +85,11 @@
         type: "line",
         data,
         options: {
+          layout: {
+            padding: {
+              left: 12
+            }
+          },
           plugins: {
             tooltip: {
               enabled: false
@@ -127,12 +132,25 @@
             ctx.beginPath();
             ctx.moveTo(xStart, yStart);
             ctx.lineTo(xEnd, yEnd);
+            ctx.setLineDash([6, 6]);
             ctx.stroke();
             ctx.closePath();
           }
 
           drawLine(left, yCoor, right, yCoor);
           drawLine(xCoor, top, xCoor, bottom);
+
+          ctx.beginPath();
+          const labelHeight = 24;
+          ctx.fillStyle = "rgba(102, 102, 102, 1)";
+          ctx.fillRect(0, yCoor - labelHeight / 2, left, labelHeight);
+
+          const labelText = y.getValueForPixel(yCoor);
+          ctx.font = "bold 12px sans-serif"
+          ctx.fillStyle = "white";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText(labelText.toFixed(2), left / 2, yCoor);
         }
       }
 
