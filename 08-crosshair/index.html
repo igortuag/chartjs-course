@@ -135,6 +135,7 @@
             ctx.setLineDash([6, 6]);
             ctx.stroke();
             ctx.closePath();
+            ctx.setLineDash([]);
           }
 
           drawLine(left, yCoor, right, yCoor);
@@ -146,7 +147,7 @@
           ctx.fillRect(0, yCoor - labelHeight / 2, left, labelHeight);
 
           const labelText = y.getValueForPixel(yCoor);
-          ctx.font = "bold 12px sans-serif"
+          ctx.font = "bold 12px sans-serif";
           ctx.fillStyle = "white";
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
