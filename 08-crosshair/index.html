@@ -112,6 +112,7 @@
 
         const {
           ctx,
+          data,
           chartArea: { top, bottom, left, right, width, height },
           scales: { x, y }
         } = chart;
@@ -163,16 +164,14 @@
           ctx.fillRect(xCoor - 15, bottom, 30, labelHeight);
           ctx.restore();
 
+          const bottomLabel = data.labels[x.getValueForPixel(xCoor)];
+
           // bottom text
           ctx.font = "bold 12px sans-serif";
           ctx.fillStyle = "white";
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.fillText(
-            y.getValueForPixel(yCoor),
-            xCoor,
-            bottom + labelHeight / 2
-          );
+          ctx.fillText(bottomLabel, xCoor, bottom + labelHeight / 2);
           ctx.restore();
         }
       }
