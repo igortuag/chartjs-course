@@ -159,7 +159,7 @@
           ctx.restore();
 
           const bottomLabel = data.labels[x.getValueForPixel(xCoor)];
-          const bottomLabelWidth = ctx.measureText(bottomLabel).width;
+          const bottomLabelWidth = ctx.measureText(bottomLabel).width + 12;
 
           // bottom rect
           ctx.beginPath();
