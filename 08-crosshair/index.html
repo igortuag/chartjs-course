@@ -112,15 +112,14 @@
 
         const {
           ctx,
+          data,
           chartArea: { top, bottom, left, right, width, height },
           scales: { x, y }
         } = chart;
 
-        ctx.strokeStyle = "rgba(102, 102, 102, 1)";
-        ctx.lineWidth = 1;
-
         const xCoor = e.offsetX;
         const yCoor = e.offsetY;
+        ctx.save();
 
         if (
           xCoor >= left &&
@@ -128,6 +127,9 @@
           yCoor >= top &&
           yCoor <= bottom
         ) {
+          ctx.strokeStyle = "rgba(102, 102, 102, 1)";
+          ctx.lineWidth = 1;
+
           function drawLine(xStart, yStart, xEnd, yEnd) {
             ctx.beginPath();
             ctx.moveTo(xStart, yStart);
@@ -135,6 +137,8 @@
             ctx.setLineDash([6, 6]);
             ctx.stroke();
             ctx.closePath();
+            ctx.restore();
+            ctx.setLineDash([]);
           }
 
           drawLine(left, yCoor, right, yCoor);
@@ -144,13 +148,37 @@
           const labelHeight = 24;
           ctx.fillStyle = "rgba(102, 102, 102, 1)";
           ctx.fillRect(0, yCoor - labelHeight / 2, left, labelHeight);
+          ctx.restore();
 
           const labelText = y.getValueForPixel(yCoor);
-          ctx.font = "bold 12px sans-serif"
+          ctx.font = "bold 12px sans-serif";
           ctx.fillStyle = "white";
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
           ctx.fillText(labelText.toFixed(2), left / 2, yCoor);
+          ctx.restore();
+
+          const bottomLabel = data.labels[x.getValueForPixel(xCoor)];
+          const bottomLabelWidth = ctx.measureText(bottomLabel).width + 12;
+
+          // bottom rect
+          ctx.beginPath();
+          ctx.fillStyle = "rgba(102, 102, 102, 1)";
+          ctx.fillRect(
+            xCoor - bottomLabelWidth / 2,
+            bottom,
+            bottomLabelWidth,
+            labelHeight
+          );
+          ctx.restore();
+
+          // bottom text
+          ctx.font = "bold 12px sans-serif";
+          ctx.fillStyle = "white";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText(bottomLabel, xCoor, bottom + labelHeight / 2);
+          ctx.restore();
         }
       }
 
