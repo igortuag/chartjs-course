@@ -50,18 +50,18 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 
     <script>
       // data block
       const data = {
         labels: [
-          new Date("2023-04-10"),
-          new Date("2023-04-11"),
-          new Date("2023-04-12"),
-          new Date("2023-04-13"),
-          new Date("2023-04-14"),
-          new Date("2023-04-15")
+          new Date("2023-04-10").setHours(0, 0, 0, 0),
+          new Date("2023-04-11").setHours(0, 0, 0, 0),
+          new Date("2023-04-12").setHours(0, 0, 0, 0),
+          new Date("2023-04-13").setHours(0, 0, 0, 0),
+          new Date("2023-04-14").setHours(0, 0, 0, 0),
+          new Date("2023-04-15").setHours(0, 0, 0, 0)
         ],
         datasets: [
           {
@@ -105,10 +105,10 @@
             }
           },
           scales: {
-            x:{
-              type: 'time',
+            x: {
+              type: "time",
               time: {
-                unit: 'day'
+                unit: "day"
               }
             },
             y: {
