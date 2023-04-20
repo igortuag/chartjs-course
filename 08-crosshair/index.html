@@ -173,7 +173,12 @@
           ctx.fillText(labelText.toFixed(2), left / 2, yCoor);
           ctx.restore();
 
-          const bottomLabel = data.labels[x.getValueForPixel(xCoor)];
+          const bottomLabel = new Date(
+            x.getValueForPixel(xCoor).toLocaleDateString("en-US", {
+              day: "numeric",
+              month: "short"
+            })
+          );
           const bottomLabelWidth = ctx.measureText(bottomLabel).width + 12;
 
           // bottom rect
