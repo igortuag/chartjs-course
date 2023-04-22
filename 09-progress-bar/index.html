@@ -83,6 +83,23 @@
         ]
       };
 
+      // rounded bar plugin block
+      const roundedProgressBar = {
+        id: "roundedProgressBar",
+        beforeDatasetsDraw(char, args, pluginsOptions) {
+          const {
+            ctx,
+            data,
+            chartArea: { left, top, right, bottom, width, height },
+            scales: { x, y }
+          } = char;
+
+          ctx.save();
+
+          const segmentHeight = height / data.labels.length;
+        }
+      };
+
       // config block
       const config = {
         type: "bar",
@@ -92,14 +109,15 @@
           plugins: {
             legend: {
               display: false
-            },
+            }
           },
           scales: {
             y: {
               beginAtZero: true
             }
           }
-        }
+        },
+        plugins: [roundedProgressBar]
       };
 
       // init render block
