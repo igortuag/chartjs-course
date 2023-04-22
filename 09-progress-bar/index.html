@@ -85,8 +85,16 @@
 
       // rounded bar plugin block
       const roundedProgressBar = {
-        id: "roundedProgressBar"
-      }
+        id: "roundedProgressBar",
+        beforeDatasetsDraw(char, args, pluginsOptions) {
+          const {
+            ctx,
+            data,
+            chartArea: { left, top, right, bottom, width, height },
+            scales: { x, y }
+          } = char;
+        }
+      };
 
       // config block
       const config = {
@@ -97,7 +105,7 @@
           plugins: {
             legend: {
               display: false
-            },
+            }
           },
           scales: {
             y: {
