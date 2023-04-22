@@ -83,6 +83,11 @@
         ]
       };
 
+      // rounded bar plugin block
+      const roundedProgressBar = {
+        id: "roundedProgressBar"
+      }
+
       // config block
       const config = {
         type: "bar",
@@ -99,7 +104,8 @@
               beginAtZero: true
             }
           }
-        }
+        },
+        plugins: [roundedProgressBar]
       };
 
       // init render block
