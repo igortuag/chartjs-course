@@ -93,6 +93,10 @@
             chartArea: { left, top, right, bottom, width, height },
             scales: { x, y }
           } = char;
+
+          ctx.save();
+
+          const segmentHeight = height / data.labels.length;
         }
       };
 
