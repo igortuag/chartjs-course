@@ -99,7 +99,7 @@
           const segmentHeight = height / data.labels.length;
 
           chart.getDatasetMeta(0).data.forEach((dataPoint, index) => {
-            dataPoint.y = y.getPixelForValue(dataPoint._index);
+            dataPoint.y = top + segmentHeight * (index + 0.9);
           });
         }
       };
