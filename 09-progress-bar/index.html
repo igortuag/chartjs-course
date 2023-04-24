@@ -107,7 +107,12 @@
             ctx.fillStyle = dataPoint.options.borderColor;
             ctx.lineJoin = "round";
             ctx.lineWidth = dataPoint.height;
-            ctx.strokeRect(left, dataPoint.y, width, 1);
+            ctx.strokeRect(
+              left + dataPoint.height / 2,
+              dataPoint.y,
+              width - dataPoint.height,
+              1
+            );
           });
         }
       };
