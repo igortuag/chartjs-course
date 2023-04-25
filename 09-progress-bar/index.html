@@ -101,6 +101,9 @@
           chart.getDatasetMeta(0).data.forEach((dataPoint, index) => {
             dataPoint.y = top + segmentHeight * (index + 0.9);
 
+            // text label
+            ctx.font = "12px sans-serif";
+
             // background shadow effect
             ctx.beginPath();
             ctx.strokeStyle = dataPoint.options.borderColor;
