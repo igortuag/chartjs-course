@@ -104,10 +104,11 @@
             // text label
             ctx.font = "12px sans-serif";
             ctx.fillStyle = "rgba(102, 102, 102, 1)";
+            ctx.baseLine = "middle";
             ctx.fillText(
               data.labels[index],
-              left + 10,
-              top + segmentHeight * (index + 0.5)
+              left,
+              dataPoint.y - 15
             );
 
             // background shadow effect
