@@ -109,8 +109,8 @@
             ctx.fillText(data.labels[index], left, dataPoint.y - 15);
 
             // text value
-            ctx.font = "12px sans-serif";
-            ctx.fillStyle = "rgba(102, 102, 102, 1)";
+            ctx.font = "bold 12px sans-serif";
+            ctx.fillStyle = dataPoint.options.borderColor;
             ctx.baseLine = "middle";
             ctx.textAlign = "right";
             ctx.fillText(data.datasets[0].data[index], right, dataPoint.y - 15);
