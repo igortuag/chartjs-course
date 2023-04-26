@@ -105,11 +105,15 @@
             ctx.font = "12px sans-serif";
             ctx.fillStyle = "rgba(102, 102, 102, 1)";
             ctx.baseLine = "middle";
-            ctx.fillText(
-              data.labels[index],
-              left,
-              dataPoint.y - 15
-            );
+            ctx.textAlign = "left";
+            ctx.fillText(data.labels[index], left, dataPoint.y - 15);
+
+            // text value
+            ctx.font = "bold 12px sans-serif";
+            ctx.fillStyle = dataPoint.options.borderColor;
+            ctx.baseLine = "middle";
+            ctx.textAlign = "right";
+            ctx.fillText(data.datasets[0].data[index], right, dataPoint.y - 15);
 
             // background shadow effect
             ctx.beginPath();
@@ -123,6 +127,8 @@
               width - dataPoint.height,
               1
             );
+
+            ctx.restore();
           });
         }
       };
@@ -139,8 +145,25 @@
             }
           },
           scales: {
+             x: {
+              beginAtZero: true,
+              grid: {
+                display: false,
+                drawBorder: false
+              },
+              ticks: {
+                display: false
+              }
+            },
             y: {
-              beginAtZero: true
+              beginAtZero: true,
+              grid: {
+                display: false,
+                drawBorder: false
+              },
+              ticks: {
+                display: false
+              }
             }
           }
         },
