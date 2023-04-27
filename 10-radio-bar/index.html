@@ -59,21 +59,30 @@
             data: [12],
             backgroundColor: ["rgba(255, 99, 132, 0.2)"],
             borderColors: ["rgba(255, 99, 132, 1)"],
-            borderWidth: 1
+            borderWidth: 1,
+            circumference: (ctx) => {
+              return (ctx.datasets.data[0] / 12) * 270;
+            }
           },
           {
             label: "Blue",
             data: [9],
             backgroundColor: ["rgba(54, 162, 235, 0.2)"],
             borderColors: ["rgba(54, 162, 235, 1)"],
-            borderWidth: 1
+            borderWidth: 1,
+            circumference: (ctx) => {
+              return (ctx.datasets.data[0] / 12) * 270;
+            }
           },
           {
             label: "Yellow",
             data: [3],
             backgroundColor: ["rgba(255, 159, 64, 0.2)"],
             borderColors: ["rgba(255, 159, 64, 1)"],
-            borderWidth: 1
+            borderWidth: 1,
+            circumference: (ctx) => {
+              return (ctx.datasets.data[0] / 12) * 270;
+            }
           }
         ]
       };
