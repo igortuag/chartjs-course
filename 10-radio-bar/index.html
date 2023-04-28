@@ -61,7 +61,12 @@
             borderColors: ["rgba(255, 99, 132, 1)"],
             borderWidth: 1,
             circumference: (ctx) => {
-              return (ctx.datasets.data[0] / 12) * 270;
+              const { chart } = ctx;
+              const dataPoints = chart.data.datasets.map((dataset, index) => {
+                return dataset.data[0];
+              });
+              const maxValue = Math.max(...dataPoints);
+              return (ctx.datasets.data[0] / maxValue) * 270;
             }
           },
           {
