@@ -61,6 +61,7 @@
             borderColors: ["rgba(255, 99, 132, 1)"],
             borderWidth: 1,
             circumference: (ctx) => {
+              const { chart } = ctx;
               return (ctx.datasets.data[0] / 12) * 270;
             }
           },
