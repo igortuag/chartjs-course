@@ -101,11 +101,13 @@
 
           const xCoor = chart.getDatasetMeta(0).data[0].x;
           const yCoor = chart.getDatasetMeta(0).data[0].y;
+          const innerRadius = chart.getDatasetMeta(0).data[0].innerRadius;
           const labelText = data.datasets[0].label;
 
           ctx.font = "bold 12px sans-serif";
           ctx.fillStyle = "black";
-          ctx.fillText(labelText, xCoor, yCoor);
+          ctx.textAlign = "right";
+          ctx.fillText(labelText, xCoor, yCoor - innerRadius);
         }
       };
 
