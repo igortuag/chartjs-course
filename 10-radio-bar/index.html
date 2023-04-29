@@ -92,6 +92,33 @@
         ]
       };
 
+      // barLabels plugin
+      const barLabels = {
+        id: "barLabels",
+        beforeDatasetsDraw(chart, args, pluginOptions) {
+          const { ctx, data } = chart;
+          ctx.save();
+
+          const xCoor = chart.getDatasetMeta(0).data[0].x;
+          const yCoor = chart.getDatasetMeta(0).data[0].y;
+          const innerRadius = chart.getDatasetMeta(0).data[0].innerRadius;
+          const outerRadius = chart.getDatasetMeta(0).data[0].outerRadius;
+          const thickness = outerRadius - innerRadius;
+
+          const labelText = data.datasets[0].label;
+
+          ctx.font = "bold 12px sans-serif";
+          ctx.fillStyle = "black";
+          ctx.textAlign = "right";
+          ctx.textBaseline = "middle";
+          ctx.fillText(
+            labelText,
+            xCoor - 5,
+            yCoor - innerRadius - thickness / 2
+          );
+        }
+      };
+
       // config block
       const config = {
         type: "doughnut",
@@ -102,7 +129,8 @@
               display: false
             }
           }
-        }
+        },
+        plugins: [barLabels]
       };
 
       // init render block
