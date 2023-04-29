@@ -94,8 +94,16 @@
 
       // barLabels plugin
       const barLabels = {
-        id: 'barLabels'
-      }
+        id: "barLabels",
+        beforeDatasetsDraw(chart, args, pluginOptions) {
+          const { ctx, data } = chart;
+          ctx.save();
+
+          ctx.font = "bold 12px sans-serif";
+          ctx.fillStyle = "black";
+          ctx.fillText("Red", 100, 100);
+        }
+      };
 
       // config block
       const config = {
