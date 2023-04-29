@@ -92,6 +92,11 @@
         ]
       };
 
+      // barLabels plugin
+      const barLabels = {
+        id: 'barLabels'
+      }
+
       // config block
       const config = {
         type: "doughnut",
@@ -102,7 +107,8 @@
               display: false
             }
           }
-        }
+        },
+        plugins: [barLabels]
       };
 
       // init render block
