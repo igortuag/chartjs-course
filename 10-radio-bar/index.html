@@ -104,10 +104,11 @@
           ctx.textBaseline = "middle";
 
           for (let i = 0; i < data.datasets.length; i++) {
-            const xCoor = chart.getDatasetMeta(i).data[0].x;
-            const yCoor = chart.getDatasetMeta(i).data[0].y;
-            const innerRadius = chart.getDatasetMeta(i).data[0].innerRadius;
-            const outerRadius = chart.getDatasetMeta(i).data[0].outerRadius;
+            const data = chart.getDatasetMeta(i).data[0];
+            const xCoor = data.x;
+            const yCoor = data.y;
+            const innerRadius = data.innerRadius;
+            const outerRadius = data.outerRadius;
             const thickness = outerRadius - innerRadius;
 
             const labelText = data.datasets[i].label;
@@ -126,6 +127,8 @@
         type: "doughnut",
         data,
         options: {
+          borderRadius: 20,
+          cutout: "85%",
           plugins: {
             legend: {
               display: false
