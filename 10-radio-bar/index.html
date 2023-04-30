@@ -111,8 +111,7 @@
             const thickness = outerRadius - innerRadius;
 
             const labelText = data.datasets[i].label;
-
-            ctx.fillStyle = "black";
+            ctx.fillStyle = data.datasets[i].borderColor;
             ctx.fillText(
               labelText,
               xCoor - 5,
