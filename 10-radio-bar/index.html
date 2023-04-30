@@ -57,8 +57,8 @@
           {
             label: "Red",
             data: [12],
-            backgroundColor: ["rgba(255, 99, 132, 0.2)"],
-            borderColors: ["rgba(255, 99, 132, 1)"],
+            backgroundColor: ["rgba(255, 99, 132, 1)"],
+            borderColors: ["white"],
             borderWidth: 1,
             circumference: (ctx) => {
               const { chart } = ctx;
@@ -72,8 +72,8 @@
           {
             label: "Blue",
             data: [9],
-            backgroundColor: ["rgba(54, 162, 235, 0.2)"],
-            borderColors: ["rgba(54, 162, 235, 1)"],
+            backgroundColor: ["rgba(54, 162, 235, 1)"],
+            borderColors: ["white"],
             borderWidth: 1,
             circumference: (ctx) => {
               return (ctx.datasets.data[0] / 12) * 270;
@@ -82,8 +82,8 @@
           {
             label: "Yellow",
             data: [3],
-            backgroundColor: ["rgba(255, 159, 64, 0.2)"],
-            borderColors: ["rgba(255, 159, 64, 1)"],
+            backgroundColor: ["rgba(255, 159, 64, 1)"],
+            borderColors: ["white"],
             borderWidth: 1,
             circumference: (ctx) => {
               return (ctx.datasets.data[0] / 12) * 270;
@@ -112,7 +112,7 @@
             const thickness = outerRadius - innerRadius;
 
             const labelText = data.datasets[i].label;
-            ctx.fillStyle = data.datasets[i].borderColor;
+            ctx.fillStyle = data.datasets[i].backgroundColor;
             ctx.fillText(
               labelText,
               xCoor - 5,
