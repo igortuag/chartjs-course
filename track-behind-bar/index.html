@@ -79,6 +79,11 @@
         ]
       };
 
+      // verticalBackground plugin block
+      const verticalBackground = {
+        id: "verticalBackground"
+      };
+
       // config block
       const config = {
         type: "bar",
@@ -89,7 +94,8 @@
               beginAtZero: true
             }
           }
-        }
+        },
+        plugins: [verticalBackground]
       };
 
       // init render block
