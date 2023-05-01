@@ -84,8 +84,21 @@
         id: "verticalBackground",
         beforeDatasetsDraw(chart, args, plugins) {
           const {
-            chartArea: { left, right, top, bottom, width, height }
+            ctx,
+            chartArea: { left, right, top, bottom, width, height },
+            scales: { x, y }
           } = chart;
+          ctx.save();
+
+          ctx.fillReact(
+            left,
+            top,
+            width,
+            height,
+            20,
+            20,
+            "rgba(75, 192, 192, 0.2)"
+          );
         }
       };
 
