@@ -90,9 +90,11 @@
           } = chart;
           ctx.save();
 
+          const xCoor = x.getPixelForValue(0);
+
           ctx.fillReact(
-            left,
-            top,
+            xCoor,
+            bottom,
             width,
             height,
             20,
