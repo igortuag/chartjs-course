@@ -81,7 +81,12 @@
 
       // verticalBackground plugin block
       const verticalBackground = {
-        id: "verticalBackground"
+        id: "verticalBackground",
+        beforeDatasetsDraw(chart, args, plugins) {
+          const {
+            chartArea: { left, right, top, bottom, width, height }
+          } = chart;
+        }
       };
 
       // config block
