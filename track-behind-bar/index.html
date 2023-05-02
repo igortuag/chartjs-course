@@ -94,7 +94,10 @@
           ctx.save();
 
           const xCoor = x.getPixelForValue(0);
-          const barWidth = width / data.labels.length;
+          const barPercentage = data.datasets[0].barPercentage;
+          const categoryPercentage = data.datasets[0].categoryPercentage;
+          const barWidth =
+            (width / data.labels.length) * barPercentage * categoryPercentage;
 
           ctx.fillReact(xCoor, top, barWidth, height);
         }
