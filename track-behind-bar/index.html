@@ -99,7 +99,7 @@
           const barWidth =
             (width / data.labels.length) * barPercentage * categoryPercentage;
 
-          ctx.fillReact(xCoor, top, barWidth, height);
+          ctx.fillReact(xCoor - barWidth / 2, top, barWidth, height);
         }
       };
 
