@@ -75,6 +75,8 @@
               "rgba(255, 159, 64, 1)"
             ],
             borderWidth: 1
+            // barPercentage: 0.9,
+            // categoryPercentage: 0.8
           }
         ]
       };
@@ -84,6 +86,7 @@
         id: "verticalBackground",
         beforeDatasetsDraw(chart, args, plugins) {
           const {
+            data,
             ctx,
             chartArea: { left, right, top, bottom, width, height },
             scales: { x, y }
@@ -91,16 +94,12 @@
           ctx.save();
 
           const xCoor = x.getPixelForValue(0);
+          const barPercentage = data.datasets[0].barPercentage || 0.9;
+          const categoryPercentage = data.datasets[0].categoryPercentage || 0.8;
+          const barWidth =
+            (width / data.labels.length) * barPercentage * categoryPercentage;
 
-          ctx.fillReact(
-            xCoor,
-            bottom,
-            width,
-            height,
-            20,
-            20,
-            "rgba(75, 192, 192, 0.2)"
-          );
+          ctx.fillReact(xCoor - barWidth / 2, top, barWidth, height);
         }
       };
 
