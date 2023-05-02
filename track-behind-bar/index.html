@@ -94,8 +94,8 @@
           ctx.save();
 
           const xCoor = x.getPixelForValue(0);
-          const barPercentage = data.datasets[0].barPercentage;
-          const categoryPercentage = data.datasets[0].categoryPercentage;
+          const barPercentage = data.datasets[0].barPercentage || 0.9;
+          const categoryPercentage = data.datasets[0].categoryPercentage || 0.8;
           const barWidth =
             (width / data.labels.length) * barPercentage * categoryPercentage;
 
