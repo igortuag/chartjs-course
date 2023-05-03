@@ -93,13 +93,15 @@
           } = chart;
           ctx.save();
 
-          const xCoor = x.getPixelForValue(0);
           const barPercentage = data.datasets[0].barPercentage || 0.9;
           const categoryPercentage = data.datasets[0].categoryPercentage || 0.8;
           const barWidth =
             (width / data.labels.length) * barPercentage * categoryPercentage;
 
-          ctx.fillReact(xCoor - barWidth / 2, top, barWidth, height);
+          for (let i = 0; i < data.labels.length; i++) {
+            const xCoor = x.getPixelForValue(i);
+            ctx.fillReact(xCoor - barWidth / 2, top, barWidth, height);
+          }
         }
       };
 
