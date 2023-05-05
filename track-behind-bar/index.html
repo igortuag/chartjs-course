@@ -96,12 +96,12 @@
           const barPercentage = data.datasets[0].barPercentage || 0.9;
           const categoryPercentage = data.datasets[0].categoryPercentage || 0.8;
           const barWidth =
-            (width / data.labels.length) * barPercentage * categoryPercentage;
+            (height / data.labels.length) * barPercentage * categoryPercentage;
 
           ctx.fillStyle = plugins.color || "lightgrey";
           for (let i = 0; i < data.labels.length; i++) {
-            const xCoor = x.getPixelForValue(i);
-            ctx.fillReact(xCoor - barWidth / 2, top, barWidth, height);
+            const yCoor = y.getPixelForValue(i);
+            ctx.fillReact(left, yCoor - barWidth / 2, width, barWidth);
           }
         }
       };
@@ -111,6 +111,7 @@
         type: "bar",
         data,
         options: {
+          indexAxis: 'y',
           scales: {
             y: {
               beginAtZero: true
