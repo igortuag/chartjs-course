@@ -100,7 +100,8 @@
 
           ctx.fillStyle = plugins.color || "lightgrey";
           for (let i = 0; i < data.labels.length; i++) {
-            ctx.fillReact(left, top, width, height);
+            const yCoor = y.getPixelForValue(i);
+            ctx.fillReact(left, yCoor, width, height);
           }
         }
       };
