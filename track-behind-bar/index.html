@@ -101,7 +101,7 @@
           const barWidth =
             (height / displayDataPoints) * barPercentage * categoryPercentage;
           ctx.fillStyle = plugins.color || "lightgrey";
-          for (let i = 0; i < data.labels.length; i++) {
+          for (let i = y.min; i < displayDataPoints; i++) {
             const yCoor = y.getPixelForValue(i);
             ctx.fillReact(left, yCoor - barWidth / 2, width, barWidth);
           }
