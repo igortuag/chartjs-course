@@ -95,9 +95,11 @@
 
           const barPercentage = data.datasets[0].barPercentage || 0.9;
           const categoryPercentage = data.datasets[0].categoryPercentage || 0.8;
+          
+          const displayDataPoints = y.max - y.min + 1 || data.labels.length;
+          
           const barWidth =
-            (height / data.labels.length) * barPercentage * categoryPercentage;
-
+            (height / displayDataPoints) * barPercentage * categoryPercentage;
           ctx.fillStyle = plugins.color || "lightgrey";
           for (let i = 0; i < data.labels.length; i++) {
             const yCoor = y.getPixelForValue(i);
