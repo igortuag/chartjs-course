@@ -81,7 +81,14 @@
 
       // no data block plugin
       const noData = {
-        id: "noData"
+        id: "noData",
+        afterDraw: function (chart, args, plugins) {
+          const {
+            ctx,
+            data,
+            chartArea: { top, right, bottom, left, width, height }
+          } = chart;
+        }
       };
 
       // config block
