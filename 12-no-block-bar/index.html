@@ -57,7 +57,7 @@
         datasets: [
           {
             label: "# of Votes",
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12, , 3, 5, 2, 3],
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
@@ -86,8 +86,13 @@
           const {
             ctx,
             data,
-            chartArea: { top, right, bottom, left, width, height }
+            chartArea: { top, right, bottom, left, width, height },
+            scales: { y, x }
           } = chart;
+          ctx.save();
+
+          ctx.fillStyle = "rgba(102, 102, 102, 1)";
+          ctx.fillRect(10, 10, 50, height);
         }
       };
 
