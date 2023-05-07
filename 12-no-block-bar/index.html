@@ -79,6 +79,11 @@
         ]
       };
 
+      // no data block plugin
+      const noData = {
+        id: "noData"
+      };
+
       // config block
       const config = {
         type: "bar",
@@ -89,7 +94,8 @@
               beginAtZero: true
             }
           }
-        }
+        },
+        plugins: [noData]
       };
 
       // init render block
