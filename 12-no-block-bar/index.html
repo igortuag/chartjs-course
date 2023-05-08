@@ -57,7 +57,7 @@
         datasets: [
           {
             label: "# of Votes",
-            data: [12, , 3, 5, 2, 3],
+            data: [12, null, 3, 5, null, 3],
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
@@ -91,8 +91,20 @@
           } = chart;
           ctx.save();
 
-          ctx.fillStyle = "rgba(102, 102, 102, 1)";
-          ctx.fillRect(10, 10, 50, height);
+          const segment = width / data.labels.length;
+
+          data.datasets[0].forEach((dataSet, index) => {
+            if (dataSet === null) {
+              ctx.fillStyle = "rgba(102, 102, 102, 1)";
+              ctx.fillRect(
+                x.getPixelForValue(index) - segment / 2,
+                top,
+                segment,
+                height
+              );
+              return;
+            }
+          });
         }
       };
 
