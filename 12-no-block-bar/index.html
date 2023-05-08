@@ -93,8 +93,18 @@
 
           const segment = width / data.labels.length;
 
-          ctx.fillStyle = "rgba(102, 102, 102, 1)";
-          ctx.fillRect(10, 10, 50, height);
+          data.datasets[0].forEach((dataSet, index) => {
+            if (dataSet === null) {
+              ctx.fillStyle = "rgba(102, 102, 102, 1)";
+              ctx.fillRect(
+                x.getPixelForValue(index) - segment / 2,
+                10,
+                segment,
+                height
+              );
+              return;
+            }
+          });
         }
       };
 
