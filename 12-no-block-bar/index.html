@@ -91,6 +91,8 @@
           } = chart;
           ctx.save();
 
+          const segment = width / data.labels.length;
+
           ctx.fillStyle = "rgba(102, 102, 102, 1)";
           ctx.fillRect(10, 10, 50, height);
         }
