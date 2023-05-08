@@ -57,7 +57,7 @@
         datasets: [
           {
             label: "# of Votes",
-            data: [12, , 3, 5, 2, 3],
+            data: [12, null, 3, 5, null, 3],
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
@@ -98,7 +98,7 @@
               ctx.fillStyle = "rgba(102, 102, 102, 1)";
               ctx.fillRect(
                 x.getPixelForValue(index) - segment / 2,
-                10,
+                top,
                 segment,
                 height
               );
