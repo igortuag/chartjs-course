@@ -104,11 +104,14 @@
                 segment,
                 height
               );
+              ctx.rotate(90 * angle);
               ctx.font = "bold 20px sans-serif";
               ctx.fillStyle = "white";
               ctx.textAlign = "center";
               ctx.textBaseline = "middle";
               ctx.fillText("No Data", x.getPixelForValue(index), height / 2);
+              ctx.rotate(-90 * angle);
+              ctx.restore();
               return;
             }
           });
