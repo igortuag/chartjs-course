@@ -91,8 +91,8 @@
           } = chart;
           ctx.save();
 
-          const difference = x.max - x.min;
-          const segment = width / data.labels.length;
+          const difference = x.max - x.min + 1;
+          const segment = width / difference;
 
           data.datasets[0].forEach((dataSet, index) => {
             const angle = Math.PI / 180;
