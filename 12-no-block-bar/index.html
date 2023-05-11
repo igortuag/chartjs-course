@@ -91,6 +91,7 @@
           } = chart;
           ctx.save();
 
+          const difference = x.max - x.min;
           const segment = width / data.labels.length;
 
           data.datasets[0].forEach((dataSet, index) => {
