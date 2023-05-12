@@ -88,6 +88,12 @@
             chartArea: { top, right, bottom, left, width, height }
           } = chart;
           ctx.save();
+
+          ctx.font = "bold 30px sans-serif";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillStyle = "gray";
+          ctx.fillText("Custom Text", left + width / 2, top + height / 2);
         }
       };
 
