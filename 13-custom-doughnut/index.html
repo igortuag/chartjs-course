@@ -82,14 +82,20 @@
       // textLabel plugin block
       const textLabel = {
         id: "textLabel",
-      }
+        afterDatasetsDraw: function (chart) {
+          const {
+            ctx,
+            chartArea: { top, right, bottom, left, width, height }
+          } = chart;
+          ctx.save();
+        }
+      };
 
       // config block
       const config = {
         type: "doughnut",
         data,
-        options: {
-        },
+        options: {},
         plugins: [textLabel]
       };
 
