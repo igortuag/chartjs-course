@@ -79,17 +79,18 @@
         ]
       };
 
+      // textLabel plugin block
+      const textLabel = {
+        id: "textLabel",
+      }
+
       // config block
       const config = {
         type: "doughnut",
         data,
         options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
+        },
+        plugins: [textLabel]
       };
 
       // init render block
