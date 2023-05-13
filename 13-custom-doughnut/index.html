@@ -82,7 +82,7 @@
       // textLabel plugin block
       const textLabel = {
         id: "textLabel",
-        afterDatasetsDraw: function (chart) {
+        afterDatasetsDraw: function (chart, args, options) {
           const {
             ctx,
             chartArea: { top, right, bottom, left, width, height }
@@ -95,7 +95,7 @@
           ctx.font = "bold 30px sans-serif";
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.fillStyle = "gray";
+          ctx.fillStyle = options.textColor;
 
           const label = data.datasets[0].label;
           ctx.fillText(label, xCenter, yCenter);
@@ -106,7 +106,13 @@
       const config = {
         type: "doughnut",
         data,
-        options: {},
+        options: {
+          plugins: {
+            textLabel: {
+              textColor: "blue"
+            }
+          }
+        },
         plugins: [textLabel]
       };
 
