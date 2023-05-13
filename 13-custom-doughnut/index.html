@@ -95,7 +95,7 @@
           ctx.font = "bold 30px sans-serif";
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.fillStyle = options.textColor;
+          ctx.fillStyle = options.textColor || "black";
 
           const label = data.datasets[0].label;
           ctx.fillText(label, xCenter, yCenter);
