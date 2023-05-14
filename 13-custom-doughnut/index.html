@@ -103,6 +103,11 @@
         }
       };
 
+      // sliceThickness plugin block
+      const sliceThickness = {
+        id: "sliceThickness"
+      };
+
       // config block
       const config = {
         type: "doughnut",
@@ -114,7 +119,7 @@
             }
           }
         },
-        plugins: [textLabel]
+        plugins: [textLabel, sliceThickness]
       };
 
       // init render block
