@@ -105,7 +105,14 @@
 
       // sliceThickness plugin block
       const sliceThickness = {
-        id: "sliceThickness"
+        id: "sliceThickness",
+        beforeDraw: function (chart, args, options) {
+          const {
+            ctx,
+            chartArea: { top, right, bottom, left, width, height }
+          } = chart;
+          ctx.save();
+        }
       };
 
       // config block
