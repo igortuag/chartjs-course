@@ -103,6 +103,22 @@
         }
       };
 
+      // sliceThickness plugin block
+      const sliceThickness = {
+        id: "sliceThickness",
+        beforeDraw: function (chart, args, options) {
+          const {
+            ctx,
+            chartArea: { top, right, bottom, left, width, height }
+          } = chart;
+          ctx.save();
+
+          const xCenter = chart.getDatasetMeta(0).data[0].x;
+          const innerRadius = chart.getDatasetMeta(0).data[0].innerRadius;
+          const outerRadius = chart.getDatasetMeta(0).data[0].outerRadius;
+        }
+      };
+
       // config block
       const config = {
         type: "doughnut",
@@ -114,7 +130,7 @@
             }
           }
         },
-        plugins: [textLabel]
+        plugins: [textLabel, sliceThickness]
       };
 
       // init render block
