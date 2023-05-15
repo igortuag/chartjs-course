@@ -114,8 +114,12 @@
           ctx.save();
 
           const xCenter = chart.getDatasetMeta(0).data[0].x;
+          const yCenter = chart.getDatasetMeta(0).data[0].y;
           const innerRadius = chart.getDatasetMeta(0).data[0].innerRadius;
           const outerRadius = chart.getDatasetMeta(0).data[0].outerRadius;
+
+          ctx.fillStyle = "blacks";
+          ctx.fillRect(xCenter, yCenter, outerRadius, 10);
         }
       };
 
