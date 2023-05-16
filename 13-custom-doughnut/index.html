@@ -113,13 +113,10 @@
           } = chart;
           ctx.save();
 
-          const xCenter = chart.getDatasetMeta(0).data[0].x;
-          const yCenter = chart.getDatasetMeta(0).data[0].y;
-          const innerRadius = chart.getDatasetMeta(0).data[0].innerRadius;
-          const outerRadius = chart.getDatasetMeta(0).data[0].outerRadius;
-
-          ctx.fillStyle = "blacks";
-          ctx.fillRect(xCenter, yCenter, outerRadius, 10);
+          data.datasets[0].data.forEach((value, index) => {
+            chart.getDatasetMeta(0).data[index].innerRadius = 100;
+            chart.getDatasetMeta(0).data[index].outerRadius = 150;
+          });
         }
       };
 
