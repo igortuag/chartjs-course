@@ -115,7 +115,7 @@
 
           data.datasets[0].data.forEach((value, index) => {
             chart.getDatasetMeta(0).data[index].innerRadius = 100;
-            chart.getDatasetMeta(0).data[index].outerRadius = 150;
+            chart.getDatasetMeta(0).data[index].outerRadius = 150 + value * 3;
           });
         }
       };
