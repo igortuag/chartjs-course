@@ -56,7 +56,10 @@
       };
 
       // init render block
-      const myChart = new Chart(document.getElementById("myChart"), config);
+      const myChart = new Chart(
+        document.getElementById("myChart").getContext("2d"),
+        config
+      );
     </script>
   </body>
 </html>
