@@ -71,9 +71,10 @@
               pointHoverBorderWidth: 10,
               pointHoverRadius: 10,
               lineTension: 0.5,
-              showLine: false,
-              data: [0, 10, 5, 2, 20, 30, 45],
-              pointHitRadius: 10
+              showLine: true,
+              data: [0, 10, 5, null, 20, 30, 45],
+              pointHitRadius: 10,
+              spanGaps: true
             },
             {
               label: "Points per month",
@@ -93,7 +94,7 @@
               pointStyle: "star",
               fill: "end",
               pointHitRadius: 10,
-              data: [10, 20, 15, 12, 10, 30, 45]
+              data: [, , , 12, 10, , 45]
             }
           ]
         },
