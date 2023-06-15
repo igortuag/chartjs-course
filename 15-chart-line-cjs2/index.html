@@ -69,33 +69,15 @@
               pointHoverBackgroundColor: "yellow",
               pointHoverBorderColor: "green",
               pointHoverBorderWidth: 10,
-              pointHoverRadius: 10,
+              pointHoverRadius: 0,
               lineTension: 0.5,
               showLine: true,
-              data: [0, 10, 5, null, 20, 30, 45],
+              data: [0, 10, 5, 20, 30, 45],
               pointHitRadius: 10,
-              spanGaps: true
+              spanGaps: true,
+              steppedLine: true
             },
-            {
-              label: "Points per month",
-              backgroundColor: "rgba(2, 99, 132, 0.2)",
-              pointBackgroundColor: [
-                "blue",
-                "red",
-                "green",
-                "yellow",
-                "pink",
-                "orange",
-                "purple"
-              ],
-              borderColor: "blue",
-              borderWidth: 3,
-              pointRadius: 5,
-              pointStyle: "star",
-              fill: "end",
-              pointHitRadius: 10,
-              data: [, , , 12, 10, , 45]
-            }
+          
           ]
         },
         options: {
