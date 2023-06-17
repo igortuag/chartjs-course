@@ -75,13 +75,20 @@
               pointHitRadius: 10,
               data: [0, 10, 5, 20, 30, 45, 30],
             },
+             {
+              label: "my profit",
+              backgroundColor: "rgba(0, 99, 132, 0.2)",
+              borderColor: "rgb(0, 99, 132)",
+              data: [0, 10, 5, 20, 30, 45, 30],
+            },
           
           ]
         },
         options: {
           scales: {
             y: {
-              beginAtZero: true
+              beginAtZero: true,
+              stacked: true
             }
           }
         }
