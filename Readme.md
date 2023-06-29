@@ -16,6 +16,10 @@ Key aspects covered in the course include:
 - Integration of Chart.js with other libraries and frameworks
 - Best practices for effective data visualization and chart design
 
+## Demo 📸
+
+You can see all the example in live by accessing this [link](https://igortuag.github.io/chartjs-course).
+
 ## Repository Structure
 
 The repository is organized as follows:
